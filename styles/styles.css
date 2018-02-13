@@ -24,5 +24,11 @@ h2 {
 p {
   font-size: 1.5rem; }
 
+article {
+  width: 600px; }
+
+img {
+  width: 100%; }
+
 .publication {
   font-style: itallic; }
