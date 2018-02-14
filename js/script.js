@@ -1,7 +1,9 @@
 const newsApp = {};
 
+newsApp.pagecount = 2;
+
 // Get News Function
-newsApp.getNews = () => {
+newsApp.getNews = (pageNumber) => {
     $.ajax({
         url: 'https://newsapi.org/v2/top-headlines',
         method: 'GET',
@@ -10,7 +12,7 @@ newsApp.getNews = () => {
             apiKey: 'c6efa387136e459096d7201bab344662',
             language: 'en',
             pageSize: 10,
-            page: 1
+            page: pageNumber
         }
     }).then(function(res) {
         let articles = res.articles;
@@ -21,9 +23,9 @@ newsApp.getNews = () => {
 
 // Print News Function
 newsApp.printNews = function(articles) {
-    articles.forEach(function(article) {
         console.log(articles);
-        console.log('number of articles', articles.length);
+    articles.forEach(function(article) {
+        // console.log('number of articles', articles.length);
 
         // const { author, description, urlToImage, url, title, publishedAt } = article;
         const author = article.author;
@@ -33,7 +35,6 @@ newsApp.printNews = function(articles) {
         const webLink = article.url;
         const headline = article.title;
         const pubDate = article.publishedAt;
-
 
 
         $('main').append(
@@ -49,12 +50,12 @@ newsApp.printNews = function(articles) {
             </article>`
         );
     });
-    console.log(articles);
 };
 
 // Initialize Function
 newsApp.init = function(){
-    newsApp.getNews();
+    newsApp.getNews(1);
+    
 };
 
 $(function () {
@@ -63,17 +64,17 @@ $(function () {
     // Infinite Scroll Function
         const infinite = function(){
             $(window).scroll(function () {
-                if((window).scrollTop() == $(document).height() - $(window).height()){
-                    $('main').append()
-                    
+                if($(window).scrollTop() == $(document).height() - $(window).height()){
+                    newsApp.getNews(newsApp.pagecount);
+                    newsApp.pagecount = newsApp.pagecount + 1;
+                    // console.log("scroll");
                 }    
-                console.log('scrolling');
             });
         }
 
         infinite();
 
-        console.log(infinite());
+        // console.log(infinite());
 });
 
 
