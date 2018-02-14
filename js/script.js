@@ -1,5 +1,6 @@
-newsApp = {};
+const newsApp = {};
 
+// Get News Function
 newsApp.getNews = () => {
     $.ajax({
         url: 'https://newsapi.org/v2/top-headlines',
@@ -8,6 +9,8 @@ newsApp.getNews = () => {
         data: {
             apiKey: 'c6efa387136e459096d7201bab344662',
             language: 'en',
+            pageSize: 10,
+            page: 1
         }
     }).then(function(res) {
         let articles = res.articles;
@@ -16,7 +19,7 @@ newsApp.getNews = () => {
     });
 };
 
-
+// Print News Function
 newsApp.printNews = function(articles) {
     articles.forEach(function(article) {
         console.log(articles);
@@ -46,16 +49,36 @@ newsApp.printNews = function(articles) {
             </article>`
         );
     });
+    console.log(articles);
 };
 
-
+// Initialize Function
 newsApp.init = function(){
     newsApp.getNews();
-    newsApp.printNews();
 };
 
 $(function () {
     newsApp.init();
+
+    // Infinite Scroll Function
+        const infinite = function(){
+            $(window).scroll(function () {
+                if((window).scrollTop() == $(document).height() - $(window).height()){
+                    $('main').append()
+                    
+                }    
+                console.log('scrolling');
+            });
+        }
+
+        infinite();
+
+        console.log(infinite());
 });
+
+
+ 
+
+
 
 
