@@ -1,17 +1,17 @@
 body {
-  background: url("../images/background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: -webkit-gradient(linear, right top, left bottom, from(#eeeeee), color-stop(#e2e2d7), color-stop(#efefef), color-stop(#e8ebdd), to(#ebf0e1));
+  background-image: -webkit-linear-gradient(right top, #eeeeee, #e2e2d7, #efefef, #e8ebdd, #ebf0e1);
+  background-image: -o-linear-gradient(right top, #eeeeee, #e2e2d7, #efefef, #e8ebdd, #ebf0e1);
+  background-image: linear-gradient(to left bottom, #eeeeee, #e2e2d7, #efefef, #e8ebdd, #ebf0e1);
   padding: 100px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Serif', serif;
   font-size: 62.5%;
   color: #222;
   opacity: 0.9; }
 
 h1,
 h2 {
-  font-family: 'Alfa Slab One', cursive;
-  font-weight: 400; }
+  font-family: 'Playfair Display', serif; }
 
 h1 {
   font-size: 4rem;
