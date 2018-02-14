@@ -50,10 +50,4 @@ newsApp.printNews = function(articles) {
 
 
 
-
-
-
-
-// };
-
 newsApp.getNews()
