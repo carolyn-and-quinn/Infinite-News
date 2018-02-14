@@ -8,8 +8,6 @@ newsApp.getNews = () => {
         data: {
             apiKey: 'c6efa387136e459096d7201bab344662',
             language: 'en',
-            pageSize: '3',
-            page: 6
         }
     }).then(function(res) {
         let articles = res.articles;
@@ -24,6 +22,7 @@ newsApp.printNews = function(articles) {
         console.log(articles);
         console.log('number of articles', articles.length);
 
+        // const { author, description, urlToImage, url, title, publishedAt } = article;
         const author = article.author;
         const publisher = article.source.name;
         const description = article.description;
