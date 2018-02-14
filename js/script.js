@@ -8,8 +8,6 @@ newsApp.getNews = () => {
         data: {
             apiKey: 'c6efa387136e459096d7201bab344662',
             language: 'en',
-            pageSize: '3',
-            page: 6
         }
     }).then(function(res) {
         let articles = res.articles;
