@@ -49,11 +49,13 @@ newsApp.printNews = function(articles) {
 };
 
 
+newsApp.init = function(){
+    newsApp.getNews();
+    newsApp.printNews();
+};
+
+$(function () {
+    newsApp.init();
+});
 
 
-
-
-
-// };
-
-newsApp.getNews()
