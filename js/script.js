@@ -25,11 +25,10 @@ newsApp.getNews = (pageNumber, region) => {
 };
 
 // Print News Function
-newsApp.printNews = function(articles) {
-        console.log(articles);
-    articles.forEach(function(article) {
+newsApp.printNews = function (articles) {
+    console.log(articles);
+    articles.forEach(function (article) {
         // console.log('number of articles', articles.length);
-
         // const { author, description, urlToImage, url, title, publishedAt } = article;
         const author = article.author;
         const publisher = article.source.name;
@@ -38,20 +37,47 @@ newsApp.printNews = function(articles) {
         const webLink = article.url;
         const headline = article.title;
         const pubDate = article.publishedAt;
-
-
+        console.log(image);
         $('main').append(
-            `<article>
-                <h2>${headline}</h2>
-                <p class="atribution">
-                    <span class="publication">${publisher}</span>
-                    <span class="author">${author}</span>
-                </p>
-                <p class="preview-text">${description}</p>
-                <img src="${image}"/>
-                <p><a href="${webLink}">Read More</a></p>
-            </article>`
+            `<article></article>`
         );
+        if (headline !== null && headline !== undefined) {
+            $('article:last-of-type').append(
+                `
+                <h2>${headline}</h2>
+            `
+            );
+        }
+        $('article:last-of-type').append(
+            `<p class="atribution"></p>`
+        );
+        if (publisher !== null && publisher !== undefined) {
+            $('.atribution:last-of-type').append(
+                ` <span class="publication">${publisher}</span>
+            `
+            );
+        }
+        if (author !== null && author !== undefined) {
+            $('.atribution:last-of-type').append(
+                `<span class="author">${author}</span>
+            `
+            );
+        }
+        if (description !== null && description !== undefined) {
+            $('article:last-of-type').append(
+                `<p class="preview-text">${description}</p>`
+            );
+        }
+        if (image !== null && image !== undefined) {
+            $('article:last-of-type').append(
+                `<img src="${image}"/>`
+            );
+        }
+        if (webLink !== null && webLink !== undefined) {
+            $('article:last-of-type').append(
+                `<p><a href="${webLink}">Read More</a></p>`
+            );
+        }
     });
 };
 
@@ -77,9 +103,6 @@ newsApp.updateArticles = () => {
     
     console.log(choice, 'made a choice');
 }
-
-
-
 
 
 // Initialize Function
