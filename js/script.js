@@ -1,5 +1,7 @@
+// Main newsApp Object
 const newsApp = {};
 
+// Global Variable 
 newsApp.pagecount = 2;
 
 // Get News Function
