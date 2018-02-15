@@ -96,7 +96,6 @@ newsApp.events = () => {
     });
 }
 
-
 newsApp.updateArticles = () => {
     // Variable that refers to the selected
     const choice = $('select option:selected')
