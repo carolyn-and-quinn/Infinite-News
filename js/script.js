@@ -5,7 +5,7 @@ const newsApp = {};
 newsApp.pagecount = 2;
 
 // Get News Function
-newsApp.getNews = (pageNumber) => {
+newsApp.getNews = (pageNumber, region) => {
     $.ajax({
         url: 'https://newsapi.org/v2/top-headlines',
         method: 'GET',
@@ -14,7 +14,8 @@ newsApp.getNews = (pageNumber) => {
             apiKey: 'c6efa387136e459096d7201bab344662',
             language: 'en',
             pageSize: 10,
-            page: pageNumber
+            page: pageNumber,
+            country: region
         }
     }).then(function(res) {
         let articles = res.articles;
@@ -54,10 +55,37 @@ newsApp.printNews = function(articles) {
     });
 };
 
+//creates a function to handle all of our event listeners
+newsApp.events = () => {
+    // Listen for change in region in the form
+    $('#country').on('change', function () {
+        // Get the value of the region selected
+        const region = $(this).val();
+        // pass region as an argument when calling the function
+        newsApp.getNews(1,region);
+        // Find Main and clear what was previously appended
+        $('main').empty();
+        console.log(region);
+        // newsApp.updateArticles();
+    });
+}
+
+
+newsApp.updateArticles = () => {
+    // Variable that refers to the selected
+    const choice = $('select option:selected')
+    
+    console.log(choice, 'made a choice');
+}
+
+
+
+
+
 // Initialize Function
 newsApp.init = function(){
     newsApp.getNews(1);
-    
+    newsApp.events();    
 };
 
 $(function () {
