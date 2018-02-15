@@ -1,64 +1,79 @@
-body {
-    background: #eeeeee;
-    background-image: url("../images/lightpaperfibers.png");
-    background-image: url("../images/lightpaperfibers.png");
-    background-blend-mode: multiply;
-    font-family: 'Noto Serif', serif;
-    font-size: 62.5%;
-    color: #232322;
-    margin: 0;
-}
-
-* {
-    mix-blend-mode: luminosity;
-}
-
-header {
-    padding: 0;
-}
-
-h1,
-h2 {
-    font-family: 'Playfair Display', serif;
-}
-
-h1 {
-    font-size: 5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-align: center;
-    margin: 50px auto;
-    width: 100%;
-    font-weight: 900;
-    padding-bottom: 50px;
-    border-bottom: 8px double black;
-}
-
-h2 {
-    font-size: 2.5rem;
-    // text-transform: uppercase;
-    // letter-spacing: 0.1em;
-}
-
-p {
-    font-size: 1rem;
-}
-
-main {
-    margin: 0 auto;
-    max-width: 90%;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: (1fr 1fr 1fr);
-}
-
-article {}
-
-img {
-    width: 100%;
-    opacity: 0.9;
-}
-
-.publication {
-    font-style: itallic;
-}
+        @import 'variables';
+        body {
+            background: #eeeeee;
+            background-image: url("../images/lightpaperfibers.png");
+            background-image: url("../images/lightpaperfibers.png");
+            background-blend-mode: multiply;
+            font-family: 'Noto Serif', serif;
+            font-size: 62.5%;
+            color: #232322;
+            margin: 0;
+        }
+        
+        header {
+            padding: 0;
+            mix-blend-mode: multiply;
+        }
+        
+        h1,
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 5rem;
+            text-transform: lowercase;
+            letter-spacing: 0.01em;
+            text-align: center;
+            margin: 50px auto 0;
+            width: 100%;
+            padding-bottom: 50px;
+            border-bottom: 8px double black;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            // text-transform: uppercase;
+            // letter-spacing: 0.1em;
+        }
+        
+        p {
+            font-size: 1rem;
+        }
+        
+        main {
+            margin: 0 auto;
+            position: relative;
+            max-width: 90%;
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: (1fr 1fr 1fr);
+            &:after {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                top: 0px;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 0px;
+                width: 0px;
+                opacity: 0.8;
+                border-top: 400px solid $accent-color;
+                border-left: 300px solid rgba(0, 0, 0, 0);
+                border-right: 300px solid rgba(0, 0, 0, 0);
+                border-bottom: 0;
+            }
+        }
+        
+        article {}
+        
+        img {
+            width: 100%;
+            opacity: 0.9;
+            mix-blend-mode: luminosity;
+        }
+        
+        .publication {
+            font-style: italic;
+        }

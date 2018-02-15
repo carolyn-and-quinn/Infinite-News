@@ -8,24 +8,22 @@ body {
   color: #232322;
   margin: 0; }
 
-* {
-  mix-blend-mode: luminosity; }
-
 header {
-  padding: 0; }
+  padding: 0;
+  mix-blend-mode: multiply; }
 
 h1,
 h2 {
-  font-family: 'Playfair Display', serif; }
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; }
 
 h1 {
   font-size: 5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
   text-align: center;
-  margin: 50px auto;
+  margin: 50px auto 0;
   width: 100%;
-  font-weight: 900;
   padding-bottom: 50px;
   border-bottom: 8px double black; }
 
@@ -37,14 +35,32 @@ p {
 
 main {
   margin: 0 auto;
+  position: relative;
   max-width: 90%;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr; }
+  main:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    height: 0px;
+    width: 0px;
+    opacity: 0.8;
+    border-top: 400px solid firebrick;
+    border-left: 300px solid transparent;
+    border-right: 300px solid transparent;
+    border-bottom: 0; }
 
 img {
   width: 100%;
-  opacity: 0.9; }
+  opacity: 0.9;
+  mix-blend-mode: luminosity; }
 
 .publication {
-  font-style: itallic; }
+  font-style: italic; }
