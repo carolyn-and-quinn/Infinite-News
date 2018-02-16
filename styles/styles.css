@@ -1,3 +1,9 @@
+i {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 3000; }
+
 body {
   background: #eeeeee;
   background-image: url("../images/lightpaperfibers.png");
