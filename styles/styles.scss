@@ -1,10 +1,8 @@
 @import 'variables';
 body {
-    background: #eeeeee;
-    background-image: url("../images/lightpaperfibers.png");
-    background-image: url("../images/lightpaperfibers.png");
+    background: #fefefe;
     background-blend-mode: multiply;
-    font-family: 'Noto Serif', serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 62.5%;
     color: $main-color;
     margin: 0;
@@ -12,38 +10,49 @@ body {
 
 header {
     padding: 0;
-    mix-blend-mode: multiply;
+    width: 90%;
+    margin: 0 auto;
+    // mix-blend-mode: multiply;
 }
 
 h1,
 h2 {
     font-family: 'Playfair Display', serif;
-    font-weight: 700;
 }
 
 h1 {
     font-size: 5rem;
-    text-transform: lowercase;
-    letter-spacing: 0.01em;
+    width: 90%;
+    text-transform: uppercase;
     text-align: center;
     margin: 50px auto 0;
     width: 100%;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
     border-bottom: 8px double $main-color;
+    font-weight: 400;
 }
 
 h2 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 1.5rem;
+    margin: 0.3em 0;
+    font-weight: 200;
 }
 
 p {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    margin: 0.5em 0 1em;
+    line-height: 1.3em;
+}
+
+.atribution {
+    font-size: 0.8rem;
+    margin: 0.3em 0;
+    color: lighten($main-color, 20%);
 }
 
 main {
     margin: 0 auto;
+    padding-top: 50px;
     position: relative;
     max-width: 90%;
     display: grid;
@@ -51,34 +60,44 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-auto-flow: dense;
     align-items: start;
-    // &:after {
-    //     content: "";
-    //     position: absolute;
-    //     z-index: -1;
-    //     top: 0px;
-    //     left: 50%;
-    //     transform: translateX(-50%);
-    //     height: 0px;
-    //     width: 0px;
-    //     opacity: 0.8;
-    //     border-top: 400px solid $accent-color;
-    //     border-left: 300px solid rgba(0, 0, 0, 0);
-    //     border-right: 300px solid rgba(0, 0, 0, 0);
-    //     border-bottom: 0;
-    // }
+    mix-blend-mode: multiply;
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        left: 50%;
+        // transform: translateX(-50%);
+        height: 0px;
+        width: 0px;
+        opacity: 0.8;
+        border-top: 400px solid $accent-color;
+        border-left: 300px solid rgba(0, 0, 0, 0);
+        border-right: 300px solid rgba(0, 0, 0, 0);
+        border-bottom: 0;
+    }
 }
 
 article {
     border-bottom: 3px solid $accent-color;
+    padding-bottom: 25px;
     a {
         display: none;
     }
-    &:nth-child(6n+1) {
+    &:nth-child(10n+1) {
         grid-column: span 2;
-        grid-row: span 2;
-        @media screen and (max-width: $two-column-break) {
+        display: grid;
+        grid-template-columns: (400px, 1fr);
+        h2,
+        .atribution {
+            grid-column: span 2;
+            order: 0;
+        }
+        img {
             grid-column: span 1;
-            grid-row: span 1;
+        }
+        p {
+            order: 1;
         }
     }
 }
@@ -86,9 +105,32 @@ article {
 img {
     width: 100%;
     opacity: 0.9;
-    mix-blend-mode: luminosity;
+    // mix-blend-mode: luminosity;
 }
 
 .publication {
     font-style: italic;
+}
+
+form {
+    background-color: $main-color;
+    color: $light;
+    font-size: 1rem;
+    width: 90%;
+    padding: 5px 5%;
+}
+
+select {
+    background-color: $main-color;
+    font-family: 'Noto Serif', serif;
+    color: $light;
+    font-size: 1rem;
+    border: 0;
+}
+
+option {
+    padding: 10px;
+    background-color: $main-color;
+    color: $light;
+    font-size: 1rem;
 }
