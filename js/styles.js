@@ -5,4 +5,6 @@ newsApp.selectArticlesToStyle = () => {
 
     $('article:not(:has(img))').addClass('no-image');
 
+    $('article:not(:has(h2))').addClass('no-headline');
+
 }
