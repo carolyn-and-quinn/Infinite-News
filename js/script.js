@@ -83,7 +83,7 @@ newsApp.printNews = function (articles) {
 
 //creates a function to handle all of our event listeners
 newsApp.events = () => {
-    // Listen for change in region in the form
+    // Listen for change in dropdown to prompt article changes
     $('#country').on('change', function () {
         // Get the value of the region selected
         const region = $(this).val();
@@ -92,7 +92,16 @@ newsApp.events = () => {
         // Find Main and clear what was previously appended
         $('main').empty();
         console.log(region);
-        // newsApp.updateArticles();
+    });
+
+    // Listen for change in dropdown to prompt weather widget
+    $('#country').on('change', function () {
+        //variable targetting option value
+        const countryCode = $(this).val();
+        // variable targetting option's other value
+        const capCity = $(this).find('option:selected').attr('data-othervalue');
+        // Calling the get Weather Function with both variables to change location of widget
+        newsApp.getWeather(capCity, countryCode);
     });
 }
 
@@ -136,25 +145,12 @@ newsApp.displayWeather = function (res) {
     $('.weather-image').attr('src', weatherPhoto);
 }
 
-//Event listening function
-newsApp.events = () => {
-    // Listen for change in country in the form
-    $('#country').on('change', function () {
-        //variable targetting option value
-        const countryCode = $(this).val();
-        // variable targetting option's other value
-        const capCity = $(this).find('option:selected').attr('data-othervalue');
-        // Calling the get Weather Function with both variables to change location of widget
-        newsApp.getWeather(capCity, countryCode);
-    });
-}
-
-
 // Initialize Function
 newsApp.init = function(){
     newsApp.getNews(1);
     newsApp.events(); 
-    newsApp.events();   
+    newsApp.events(); 
+
 };
 
 $(function () {

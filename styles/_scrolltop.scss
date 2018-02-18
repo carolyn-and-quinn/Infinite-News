@@ -36,20 +36,39 @@ svg{
 // Widget Styles
 
 .widget{
+    // position: absolute;
+    // right: 0;
+    // top: 0;
+    padding: 10px 10px 10px 0;
     display: flex;
     justify-content: flex-end;
-    // align-items: center;
+    align-items: center;
+    .region{
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 0;
+    }
     .weather-icon{
     height: 50px;
     width: 50px;
     }
 }
+
+
 .middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 0 20px;
+    padding: 0 15px 0 10px;
+    border-left: 1px solid $main-color;
+    border-right: 1px solid $main-color;
+    text-align: center;
 }
 
 .weather-type{
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     font-weight: 400;
     margin: 0;
@@ -58,4 +77,9 @@ svg{
 .weather-image{
     max-width: 100%;
     height: 50px; 
-    }
+    padding-right: 15px;
+}
+
+.temps p{
+    margin: 2px 0;
+}
