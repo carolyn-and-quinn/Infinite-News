@@ -83,7 +83,7 @@ newsApp.printNews = function (articles) {
 
 //creates a function to handle all of our event listeners
 newsApp.events = () => {
-    // Listen for change in region in the form
+    // Listen for change in dropdown to prompt article changes
     $('#country').on('change', function () {
         // Get the value of the region selected
         const region = $(this).val();
@@ -92,23 +92,65 @@ newsApp.events = () => {
         // Find Main and clear what was previously appended
         $('main').empty();
         console.log(region);
-        // newsApp.updateArticles();
+    });
+
+    // Listen for change in dropdown to prompt weather widget
+    $('#country').on('change', function () {
+        //variable targetting option value
+        const countryCode = $(this).val();
+        // variable targetting option's other value
+        const capCity = $(this).find('option:selected').attr('data-othervalue');
+        // Calling the get Weather Function with both variables to change location of widget
+        newsApp.getWeather(capCity, countryCode);
     });
 }
 
+// Get Weather Function (AJAX call)
+newsApp.getWeather = function (param) {
+    const siteStart = "http://api.openweathermap.org/data/2.5/weather?q=";
+    const siteEnd = "&APPID=183331d42e68a071ea966b457bce93c1"
+    $.ajax({
+        url: siteStart + param + siteEnd,
+        method: 'GET',
+        dataType: 'json',
+    }).then(function (res) {
+        newsApp.displayWeather(res);
+    });
+};
 
-newsApp.updateArticles = () => {
-    // Variable that refers to the selected
-    const choice = $('select option:selected')
-    
-    console.log(choice, 'made a choice');
+// function for displaying Weather
+newsApp.displayWeather = function (res) {
+    // City Name
+    const cityName = res.name;
+    // Weather Type
+    const weatherType = res.weather[0].description;
+    // Current Temp (Celsius)
+    const currentTemp = Math.round(res.main.temp - 273.15);
+    // Min Temp (Celsius)
+    const lowTemp = Math.round(res.main.temp_min - 273.15);
+    // Max Temp (Celsius)
+    const highTemp = Math.round(res.main.temp_max - 273.15);
+    // Weather Code
+    const weatherCode = res.weather[0].icon;
+    // Weather Photo
+    const weatherPhoto = "http://openweathermap.org/img/w/" + weatherCode + ".png";
+    const countryName = $('#country').find('option:selected').text();
+
+    // Converting the data to browser 
+    $('.region').text(`${cityName}, ${countryName}`);
+    $('.weather-type').text(`${weatherType}`);
+    $('.temp').text(`Current: ${currentTemp}°C`);
+    $('.low-temp').text(`Low: ${lowTemp}°C`);
+    $('.high-temp').text(`High: ${highTemp}°C`);
+    $('.weather-image').attr('src', weatherPhoto);
 }
-
 
 // Initialize Function
 newsApp.init = function(){
     newsApp.getNews(1);
-    newsApp.events();    
+    newsApp.events(); 
+    newsApp.events(); 
+
 };
 
 $(function () {
