@@ -79,6 +79,8 @@ newsApp.printNews = function (articles) {
             );
         }
     });
+
+    newsApp.selectArticlesToStyle();
 };
 
 //creates a function to handle all of our event listeners
