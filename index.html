@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,33 +12,41 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto:300" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 </head>
 
 <body>
     <span id="scroll"></span>
     <!-- Scroll to top -->
-    <header id="scroll">
-        <a href="#scroll"><i class="far fa-arrow-alt-circle-up fa-5x pulse"></i></a>
+    <header>
+        <a href="#scroll" class="scroll-to-top">
+            <i class="far fa-arrow-alt-circle-up fa-5x pulse"></i>
+        </a>
 
         <h1>The Endless Times</h1>
-
-        <!-- Weather Widget -->
-        <div class="widget">
-            <p class="region"></p>
-            <div class="middle">
-                <div class="weather-icon">
-                    <img src="" alt="" class="weather-image">
-                </div>
-                <p class="weather-main"></p>
-                <p class="weather-type"></p>
+        <div class="widget-container">
+            <!-- Date Widget -->
+            <div class="date-widget">
+                <p class="datestamp"></p>
             </div>
-            <div class="temps">
-                <p class="temp"></p>
-                <p class="low-temp"></p>
-                <p class="high-temp"></p>
+
+            <!-- Weather Widgit -->
+            <div class="widget">
+                <p class="region">Toronto, Canada</p>
+                <div class="middle">
+                    <div class="weather-icon">
+                        <img src="" alt="" class="weather-image">
+                    </div>
+                    <p class="weather-main"></p>
+                    <p class="weather-type"></p>
+                </div>
+                <div class="temps">
+                    <p class="temp"></p>
+                    <p class="low-temp"></p>
+                    <p class="high-temp"></p>
+                </div>
             </div>
         </div>
-        <!-- / Weather Widget -->
         <!-- Drop Down for selecting region -->
         <form action="">
             <label for="">Country</label>
@@ -101,13 +109,21 @@
         </form>
     </header>
 
-
+    <!-- Main content -->
     <main>
 
-
+    
     </main>
 
+
+    <!-- Jquery CDN -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Smooth Scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.1.2/jquery.smooth-scroll.min.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    
     <script src="js/script.js"></script>
     <script src="js/styles.js"></script>
 

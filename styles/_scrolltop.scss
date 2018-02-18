@@ -1,9 +1,13 @@
 // Scroll to Top
-svg{
+.fa-arrow-alt-circle-up{
   color: $accent-color;
+  font-family: font-awesome;
+  content: 'f35b';
+  font-size: 2.5rem;
   position: fixed;
-  right: 70px;
+  right: 60px;
   bottom: 20px;
+  z-index: 3000;
 }
 
 /* Pulse Animation */
@@ -34,6 +38,20 @@ svg{
 }
 
 // Widget Styles
+
+.widget-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+    border-bottom: 1px solid black;
+    height: 100%;
+    margin-bottom: 10px;
+    .datestamp{
+        font-size: 1.2rem;
+        margin: 0;
+    }
+}
 
 .widget{
     // position: absolute;

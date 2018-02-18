@@ -1,8 +1,24 @@
 // Main newsApp Object
 const newsApp = {};
 
+// Infinite Scroll Function
+newsApp.infinite = function () {
+    $(window).scroll(function () {
+        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+            newsApp.getNews(newsApp.pagecount);
+            newsApp.pagecount = newsApp.pagecount + 1;
+            console.log("scroll");
+        }
+    });
+}
+
 // Global Variable 
 newsApp.pagecount = 2;
+
+// Smooth Scroll
+$('a').smoothScroll({
+    offset: 0
+});
 
 // Get News Function
 newsApp.getNews = (pageNumber, region) => {
@@ -137,7 +153,10 @@ newsApp.displayWeather = function(res) {
     const weatherCode = res.weather[0].icon;
     // Weather Photo
     const weatherPhoto = "http://openweathermap.org/img/w/" + weatherCode + ".png";
+    // Country Name
     const countryName = $('#country').find('option:selected').text();
+    // Date
+    const unix = new Date();
 
     // Converting the data to browser 
     $('.region').text(`${cityName}, ${countryName}`);
@@ -146,31 +165,18 @@ newsApp.displayWeather = function(res) {
     $('.low-temp').text(`Low: ${lowTemp}°C`);
     $('.high-temp').text(`High: ${highTemp}°C`);
     $('.weather-image').attr('src', weatherPhoto);
+    $('.datestamp').text(`${unix}`);
 }
 
 // Initialize Function
 newsApp.init = function() {
     newsApp.getNews(1);
     newsApp.events();
-    newsApp.events();
-
+    newsApp.getWeather('Toronto,ca');
+    newsApp.infinite();
 };
 
 $(function() {
     newsApp.init();
-
-    // Infinite Scroll Function
-    const infinite = function() {
-        $(window).scroll(function() {
-            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-                newsApp.getNews(newsApp.pagecount);
-                newsApp.pagecount = newsApp.pagecount + 1;
-                // console.log("scroll");
-            }
-        });
-    }
-
-    infinite();
-
-    // console.log(infinite());
+    
 });
