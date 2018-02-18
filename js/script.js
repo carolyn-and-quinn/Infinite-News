@@ -161,7 +161,7 @@ newsApp.displayWeather = function(res) {
 newsApp.init = function() {
     newsApp.getNews(1);
     newsApp.events();
-    newsApp.events();
+    newsApp.getWeather('Toronto,ca');
 };
 
 $(function() {
