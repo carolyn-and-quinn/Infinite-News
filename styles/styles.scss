@@ -31,6 +31,20 @@ h1 {
     padding-bottom: 25px;
     border-bottom: 8px double $main-color;
     font-weight: 400;
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0px;
+        left: 50%;
+        height: 0px;
+        width: 0px;
+        opacity: 0.7;
+        border-top: 400px solid $accent-color;
+        border-left: 300px solid rgba(0, 0, 0, 0);
+        border-right: 300px solid rgba(0, 0, 0, 0);
+        border-bottom: 0;
+    }
 }
 
 h2 {
@@ -62,27 +76,19 @@ main {
     grid-auto-flow: dense;
     align-items: start;
     mix-blend-mode: multiply;
-    &:after {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        top: 0px;
-        left: 50%;
-        // transform: translateX(-50%);
-        height: 0px;
-        width: 0px;
-        opacity: 0.8;
-        border-top: 400px solid $accent-color;
-        border-left: 300px solid rgba(0, 0, 0, 0);
-        border-right: 300px solid rgba(0, 0, 0, 0);
-        border-bottom: 0;
+    @media screen and (max-width: 1090px) {
+        &:after {
+            border-top: 200px solid $accent-color;
+            border-left: 150px solid rgba(0, 0, 0, 0);
+            border-right: 150px solid rgba(0, 0, 0, 0);
+        }
     }
 }
 
 img {
     width: 100%;
     opacity: 0.9;
-    // mix-blend-mode: luminosity;
+    filter: grayscale(100%);
 }
 
 .publication {
@@ -100,6 +106,7 @@ article {
     .preview-text {
         display: none;
     }
+    transition: all 0.4s;
 }
 
 .full-data-set {
@@ -124,6 +131,9 @@ article {
             order: 1;
         }
     }
+    @media screen and (max-width: 900px) {
+        grid-column: span 1;
+    }
 }
 
 .no-image {
@@ -141,5 +151,36 @@ article {
     p,
     .atribution {
         color: rgba(255, 255, 255, 0.8);
+    }
+    @media screen and (max-width: 1090px) {
+        grid-column: 3 / 4;
+    }
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+}
+
+article:hover {
+    position: relative;
+    background-color: #fff;
+    color: $main-color;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 1, 0.35);
+    border: 0;
+    padding: 20px;
+    z-index: 100;
+    img {
+        filter: grayscale(1%);
+    }
+    a {
+        display: block;
+        background: $accent-color;
+        color: white;
+        max-width: 100%;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 }
