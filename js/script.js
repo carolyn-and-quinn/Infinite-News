@@ -4,6 +4,11 @@ const newsApp = {};
 // Global Variable 
 newsApp.pagecount = 2;
 
+// Smooth Scroll
+$('a').smoothScroll({
+    offset: 0
+});
+
 // Get News Function
 newsApp.getNews = (pageNumber, region) => {
     $.ajax({
@@ -137,7 +142,10 @@ newsApp.displayWeather = function(res) {
     const weatherCode = res.weather[0].icon;
     // Weather Photo
     const weatherPhoto = "http://openweathermap.org/img/w/" + weatherCode + ".png";
+    // Country Name
     const countryName = $('#country').find('option:selected').text();
+    // Date
+    const unix = new Date();
 
     // Converting the data to browser 
     $('.region').text(`${cityName}, ${countryName}`);
@@ -146,6 +154,7 @@ newsApp.displayWeather = function(res) {
     $('.low-temp').text(`Low: ${lowTemp}°C`);
     $('.high-temp').text(`High: ${highTemp}°C`);
     $('.weather-image').attr('src', weatherPhoto);
+    $('.datestamp').text(`${unix}`);
 }
 
 // Initialize Function
@@ -153,12 +162,10 @@ newsApp.init = function() {
     newsApp.getNews(1);
     newsApp.events();
     newsApp.events();
-
 };
 
 $(function() {
     newsApp.init();
-
     // Infinite Scroll Function
     const infinite = function() {
         $(window).scroll(function() {
@@ -171,6 +178,4 @@ $(function() {
     }
 
     infinite();
-
-    // console.log(infinite());
 });
