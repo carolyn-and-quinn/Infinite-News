@@ -2,93 +2,114 @@
 <html lang="en">
 
 <head>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Endless Times</title>
-
     <link href="Playfair+Display:400&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto:300" rel="stylesheet">
-
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
-
-    <header>
+    <span id="scroll"></span>
+    <!-- Scroll to top -->
+    <header id="scroll">
+        <a href="#scroll"><i class="far fa-arrow-alt-circle-up fa-5x pulse"></i></a>
+        
         <h1>The Endless Times</h1>
-        <!-- Drop Down for selecting region -->
-        <form action="">
-            <label for="">Select Region</label>
-            <select name="country" id="country">
-                <option value="ca">Canada</option>
-                <option value="us">US</option>
-                <option value="au">Australia</option>
-                <option value="jp">Japan</option>
-                <option value="ae">United Arab Emirates</option>
-                <option value="ar">Argentina</option>
-                <option value="at">Austria</option>
-                <option value="be">Belgium</option>
-                <option value="bg">Bulgaria</option>
-                <option value="br">Brazil</option>
-                <option value="ch">Switzerland</option>
-                <option value="cn">China</option>
-                <option value="co">Colombia</option>
-                <option value="cu">Cuba</option>
-                <option value="cz">Czech Republic</option>
-                <option value="de">Germany</option>
-                <option value="eg">Egypt</option>
-                <option value="fr">French</option>
-                <option value="gb">Greak Britain</option>
-                <option value="gr">Greece</option>
-                <option value="hk">Hong Kong</option>
-                <option value="hu">Hungary</option>
-                <option value="id">Indonesia</option>
-                <option value="ie">Ireland</option>
-                <option value="il">Israel</option>
-                <option value="in">India</option>
-                <option value="it">Italy</option>
-                <option value="kr">South Korea</option>
-                <option value="lt">Lithuania</option>
-                <option value="lv">Latvia</option>
-                <option value="ma">Morocco</option>
-                <option value="mx">Mexico</option>
-                <option value="my">Malaysia</option>
-                <option value="ng">Nigeria</option>
-                <option value="nl">Netherlands</option>
-                <option value="no">Norway</option>
-                <option value="nz">New Zealand</option>
-                <option value="ph">Philippines</option>
-                <option value="pl">Poland</option>
-                <option value="pt">Portugal</option>
-                <option value="ro">Romania</option>
-                <option value="rs">Serbia</option>
-                <option value="ru">Russia</option>
-                <option value="sa">Saudi Arabia</option>
-                <option value="se">Sweden</option>
-                <option value="sg">Singapore</option>
-                <option value="si">Slovenia</option>
-                <option value="sk">Slovakia</option>
-                <option value="th">Thailand</option>
-                <option value="tr">Turkey</option>
-                <option value="tw">Taiwan</option>
-                <option value="ua">Ukraine</option>
-                <option value="ve">Venezuela</option>
-                <option value="za">South Africa</option>
 
-                
-            </select>
+        <!-- Weather Widget -->
+        <div class="widget">
+            <p class="region"></p>
+            <div class="middle">
+                <div class="weather-icon">
+                    <img src="" alt="" class="weather-image">
+                </div>
+                <p class="weather-main"></p>
+                <p class="weather-type"></p>
+            </div>
+            <div class="temps">
+                <p class="temp"></p>
+                <p class="low-temp"></p>
+                <p class="high-temp"></p>
+            </div>
+        </div>
+        <!-- / Weather Widget -->
+    <!-- Drop Down for selecting region -->
+    <form action="">
+        <label for="">Country</label>
+        <select name="country" id="country">
+            <option value="ca" data-othervalue="Ottawa">Canada</option>
+            <option value="us" data-othervalue="Washington">US</option>
+            <option value="au" data-othervalue="Canberra">Australia</option>
+            <option value="jp" data-othervalue="Tokyo">Japan</option>
+            <option value="ae" data-othervalue="Abu Dhabi">United Arab Emirates</option>
+            <option value="ar" data-othervalue="Buenos Aires">Argentina</option>
+            <option value="at" data-othervalue="Vienna">Austria</option>
+            <option value="be" data-othervalue="Brussels">Belgium</option>
+            <option value="bg" data-othervalue="Sofia">Bulgaria</option>
+            <option value="br" data-othervalue="Brasilia">Brazil</option>
+            <option value="ch" data-othervalue="Bern">Switzerland</option>
+            <option value="cn" data-othervalue="Beijing">China</option>
+            <option value="co" data-othervalue="Bogota">Colombia</option>
+            <option value="cu" data-othervalue="Havana">Cuba</option>
+            <option value="cz" data-othervalue="Prague">Czech Republic</option>
+            <option value="de" data-othervalue="Berlin">Germany</option>
+            <option value="eg" data-othervalue="Cairo">Egypt</option>
+            </option>
+            <option value="gb" data-othervalue="London">Great Britain</option>
+            <option value="gr" data-othervalue="Athens">Greece</option>
+            <option value="hk" data-othervalue="Central">Hong Kong</option>
+            <option value="hu" data-othervalue="Budapest">Hungary</option>
+            <option value="id" data-othervalue="Jakarta">Indonesia</option>
+            <option value="ie" data-othervalue="Dublin">Ireland</option>
+            <option value="il" data-othervalue="Tel Aviv">Israel</option>
+            <option value="in" data-othervalue="New Delhi">India</option>
+            <option value="it" data-othervalue="Rome">Italy</option>
+            <option value="kr" data-othervalue="Seoul">South Korea</option>
+            <option value="lt" data-othervalue="Vilnius">Lithuania</option>
+            <option value="lv" data-othervalue="Riga">Latvia</option>
+            <option value="ma" data-othervalue="Rabat">Morocco</option>
+            <option value="mx" data-othervalue="Mexico City">Mexico</option>
+            <option value="my" data-othervalue="Kuala Lumpur">Malaysia</option>
+            <option value="ng" data-othervalue="Abuja">Nigeria</option>
+            <option value="nl" data-othervalue="Amsterdam">Netherlands</option>
+            <option value="no" data-othervalue="Oslo">Norway</option>
+            <option value="nz" data-othervalue="Wellington">New Zealand</option>
+            <option value="ph" data-othervalue="Manila">Philippines</option>
+            <option value="pl" data-othervalue="Warsaw">Poland</option>
+            <option value="pt" data-othervalue="Lisbon">Portugal</option>
+            <option value="ro" data-othervalue="Bucharest">Romania</option>
+            <option value="rs" data-othervalue="Belgrade">Serbia</option>
+            <option value="ru" data-othervalue="Moscow">Russia</option>
+            <option value="sa" data-othervalue="Riyadh">Saudi Arabia</option>
+            <option value="se" data-othervalue="Stockholm">Sweden</option>
+            <option value="sg" data-othervalue="Singapore">Singapore</option>
+            <option value="si" data-othervalue="Ljubljana">Slovenia</option>
+            <option value="sk" data-othervalue="Bratislava">Slovakia</option>
+            <option value="th" data-othervalue="Bangkok">Thailand</option>
+            <option value="tr" data-othervalue="Ankara">Turkey</option>
+            <option value="tw" data-othervalue="Taipei">Taiwan</option>
+            <option value="ua" data-othervalue="Kyiv">Ukraine</option>
+            <option value="ve" data-othervalue="Caracas">Venezuela</option>
+            <option value="za" data-othervalue="Cape Town">South Africa</option>
+        </select>
+    </form>
     </header>
 
-    </form>
 
     <main>
 
 
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+  
+
     <script src="js/script.js"></script>
 </body>
 
