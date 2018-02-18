@@ -5,9 +5,9 @@
   content: 'f35b';
   font-size: 2.5rem;
   position: fixed;
-  right: 60px;
+  right: 20px;
   bottom: 20px;
-  z-index: 3000;
+  z-index: 3000000;
 }
 
 /* Pulse Animation */
@@ -37,6 +37,23 @@
     }           
 }
 
+
+form{
+    padding-left: 20px;
+    background: $main-color;
+    color: white;
+    padding: 10px 0;
+    font-size: 0.8rem;
+    label{
+        padding: 0 10px 0 10px;
+    }
+    select{
+        background: $main-color;
+        color: white;
+    }
+}
+
+
 // Widget Styles
 
 .widget-container{
@@ -46,7 +63,7 @@
     font-family: 'Oswald', sans-serif;
     border-bottom: 1px solid black;
     height: 100%;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
     .datestamp{
         font-size: 1.2rem;
         margin: 0;
