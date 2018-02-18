@@ -1,6 +1,17 @@
 // Main newsApp Object
 const newsApp = {};
 
+// Infinite Scroll Function
+newsApp.infinite = function () {
+    $(window).scroll(function () {
+        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+            newsApp.getNews(newsApp.pagecount);
+            newsApp.pagecount = newsApp.pagecount + 1;
+            console.log("scroll");
+        }
+    });
+}
+
 // Global Variable 
 newsApp.pagecount = 2;
 
@@ -162,20 +173,10 @@ newsApp.init = function() {
     newsApp.getNews(1);
     newsApp.events();
     newsApp.getWeather('Toronto,ca');
+    newsApp.infinite();
 };
 
 $(function() {
     newsApp.init();
-    // Infinite Scroll Function
-    const infinite = function() {
-        $(window).scroll(function() {
-            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-                newsApp.getNews(newsApp.pagecount);
-                newsApp.pagecount = newsApp.pagecount + 1;
-                // console.log("scroll");
-            }
-        });
-    }
-
-    infinite();
+    
 });
