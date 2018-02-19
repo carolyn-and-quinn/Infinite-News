@@ -176,9 +176,6 @@ newsApp.displayWeather = function(res) {
         // $(this).siblings().removeClass('active');
     });
     
-    
-    
-    $('.mega-menu div a').find('active').text();
     // Date
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -209,6 +206,5 @@ newsApp.init = function() {
 };
 
 $(function() {
-    newsApp.init();
-    
+    newsApp.init(); 
 });
