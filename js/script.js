@@ -21,8 +21,8 @@ newsApp.getNews = (pageNumber, region) => {
             country: region //Set by user. If null, displays news from all regions 
         }
     }).then(function(res) {
-        let articles = res.articles;
-        newsApp.printNews(articles);
+        let articles = res.articles; //Capture articles
+        newsApp.printNews(articles); //Pass them to newsApp.printNews
     });
 };
 
@@ -30,7 +30,7 @@ newsApp.getNews = (pageNumber, region) => {
 newsApp.printNews = function(articles) {
     articles.forEach(function(article) {
         // could also have been written as👇
-        // const { author, description, urlToImage, url, title, publishedAt } = article;
+        //// const { author, description, urlToImage, url, title, publishedAt } = article;
         const author = article.author;
         const publisher = article.source.name;
         const description = article.description;
@@ -39,7 +39,7 @@ newsApp.printNews = function(articles) {
         const headline = article.title;
         const pubDate = article.publishedAt;
 
-        //The articles vary in terms of what content they contain. 
+        //The articles vary in terms of what data they contain. 
         //We will print them all on the page selectively depending on what we get back.
 
         //The article to hold the information
@@ -99,6 +99,7 @@ newsApp.printNews = function(articles) {
         }
     });
 
+    //Passes completed articles on page to newsApp.selectArticlesToStyle
     newsApp.selectArticlesToStyle();
 
 };
