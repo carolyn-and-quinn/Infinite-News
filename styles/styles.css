@@ -368,10 +368,10 @@ form {
   display: none; }
 
 html {
-  --accentColor: darkolivegreen; }
+  --accentColor: crimson; }
 
 body {
-  background: #fefefe;
+  background: #ffffff;
   font-family: 'Roboto', sans-serif;
   font-size: 62.5%;
   color: #232322;
