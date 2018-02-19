@@ -173,7 +173,6 @@ newsApp.displayWeather = function(res) {
     const countryName = $(".mega-menu div a").click(function (event) {
         event.preventDefault();
         $(this).text();
-        // $(this).siblings().removeClass('active');
     });
     
     // Date
