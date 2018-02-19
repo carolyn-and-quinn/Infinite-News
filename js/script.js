@@ -110,11 +110,11 @@ newsApp.events = () => {
     });
 
     // Dropdown toggle
-    // $(".mega-menu div a").click(function (event) {
-    //     event.preventDefault();
-    //     $(this).siblings().addClass('active');
-    //     // $(this).siblings().removeClass('active');
-    // });
+    $(".mega-menu div a").click(function (event) {
+        event.preventDefault();
+        $(this).siblings().addClass('active');
+        // $(this).siblings().removeClass('active');
+    });
 
    
 
@@ -170,7 +170,15 @@ newsApp.displayWeather = function(res) {
     // Weather Photo
     const weatherPhoto = "http://openweathermap.org/img/w/" + weatherCode + ".png";
     // Country Name
-    const countryName = $('.mega-menu div a').find('active').text();
+    const countryName = $(".mega-menu div a").click(function (event) {
+        event.preventDefault();
+        $(this).text();
+        // $(this).siblings().removeClass('active');
+    });
+    
+    
+    
+    $('.mega-menu div a').find('active').text();
     // Date
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
