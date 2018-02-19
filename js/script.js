@@ -99,6 +99,14 @@ newsApp.printNews = function(articles) {
                 `<p><a href="${webLink}" target="_blank">Read More</a></p>`
             );
         }
+
+        //Append a twitter share button
+        if (webLink !== null && webLink !== undefined) {
+            $('article:last-of-type').append(
+                `<p><a class="twitter" href="https://twitter.com/intent/tweet?text=${headline}%20${webLink}%20via%20@endless_times" target="_blank">Share on Twitter</a></p>`
+            );
+        }
+
     });
 
     //Passes completed articles on page to newsApp.selectArticlesToStyle

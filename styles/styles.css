@@ -202,10 +202,22 @@ form {
 .show-menu {
   display: none; }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
   display: block; }
 
-audio, canvas, video {
+audio,
+canvas,
+video {
   display: inline-block; }
 
 audio:not([controls]) {
@@ -223,7 +235,8 @@ html {
 a:focus {
   outline: thin dotted; }
 
-a:active, a:hover {
+a:active,
+a:hover {
   outline: 0; }
 
 h1 {
@@ -232,7 +245,8 @@ h1 {
 abbr[title] {
   border-bottom: 1px dotted; }
 
-b, strong {
+b,
+strong {
   font-weight: 700; }
 
 dfn {
@@ -242,7 +256,10 @@ mark {
   background: #ff0;
   color: #000; }
 
-code, kbd, pre, samp {
+code,
+kbd,
+pre,
+samp {
   font-family: monospace, serif;
   font-size: 1em; }
 
@@ -256,7 +273,8 @@ q {
 small {
   font-size: 80%; }
 
-sub, sup {
+sub,
+sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -279,22 +297,31 @@ fieldset {
   margin: 0 2px;
   padding: .35em .625em .75em; }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font-family: inherit;
   font-size: 100%;
   margin: 0; }
 
-button, input {
+button,
+input {
   line-height: normal; }
 
-button, html input[type=button], input[type=reset], input[type=submit] {
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
   -webkit-appearance: button;
   cursor: pointer; }
 
-button[disabled], input[disabled] {
+button[disabled],
+input[disabled] {
   cursor: default; }
 
-input[type=checkbox], input[type=radio] {
+input[type=checkbox],
+input[type=radio] {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0; }
@@ -305,7 +332,8 @@ input[type=search] {
   -webkit-box-sizing: content-box;
   box-sizing: content-box; }
 
-input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 textarea {
@@ -316,10 +344,13 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-body, figure {
+body,
+figure {
   margin: 0; }
 
-legend, button::-moz-focus-inner, input::-moz-focus-inner {
+legend,
+button::-moz-focus-inner,
+input::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
@@ -367,7 +398,7 @@ h1 {
     z-index: -1;
     top: 0px;
     left: 50%;
-    opacity: 0.5;
+    opacity: 0.7;
     border-top: 400px solid firebrick;
     border-left: 300px solid transparent;
     border-right: 300px solid transparent;
@@ -458,14 +489,13 @@ article {
 .full-data-set:nth-of-type(2n+1) {
   border-top: 10px double firebrick;
   grid-column: 1 / 3;
-  grid-row: span 5;
-  display: grid;
-  grid-template-columns: 2fr 1fr; }
+  grid-row: span 5; }
   .full-data-set:nth-of-type(2n+1) h2 {
     font-size: 2rem; }
   .full-data-set:nth-of-type(2n+1) h2,
   .full-data-set:nth-of-type(2n+1) .atribution,
-  .full-data-set:nth-of-type(2n+1) img {
+  .full-data-set:nth-of-type(2n+1) img,
+  .full-data-set:nth-of-type(2n+1) a {
     grid-column: span 2;
     -webkit-box-ordinal-group: 1;
     -ms-flex-order: 0;
@@ -476,7 +506,8 @@ article {
     order: 1; }
   .full-data-set:nth-of-type(2n+1) a {
     margin-top: 10px;
-    padding: 15px; }
+    padding: 15px;
+    max-width: 70%; }
   .full-data-set:nth-of-type(2n+1):hover {
     border: 0; }
   @media screen and (max-width: 900px) {
@@ -488,7 +519,11 @@ article {
       .full-data-set:nth-of-type(2n+1) img {
         grid-column: span 1; }
       .full-data-set:nth-of-type(2n+1) h2 {
-        font-size: 1.5rem; } }
+        font-size: 1.5rem; }
+      .full-data-set:nth-of-type(2n+1) a {
+        margin-top: 5px;
+        padding: 10px;
+        max-width: 100%; } }
 
 .no-image {
   grid-column: 4 / 5;
@@ -528,6 +563,7 @@ article:hover {
     -webkit-filter: grayscale(1%);
     filter: grayscale(1%); }
   article:hover a {
+    grid-column: 1 / span 1;
     display: block;
     background: firebrick;
     color: white;
@@ -543,6 +579,8 @@ article:hover {
     transition: all 0.4s; }
     article:hover a:hover {
       background: #232322; }
+  article:hover .twitter {
+    background-color: #0084b4; }
   article:hover .preview-text {
     display: block;
     font-size: 1rem;
