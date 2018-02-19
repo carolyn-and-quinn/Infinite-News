@@ -173,7 +173,6 @@ newsApp.getWeather = function(param) {
         dataType: 'json',
     }).then(function(res) {
         newsApp.displayWeather(res);
-        console.log(res)
     });
 };
 
