@@ -3,6 +3,8 @@ const newsApp = {};
 
 // Global Variables
 newsApp.pagecount = 2; //iterates in order to enable infinite scroll
+newsApp.nameOfCountry = 'Canada'; //QUINN #1: I added this so that the country name can be accessed
+//There is probably a better way to pass it but I wanted to touch your code as little as possible
 newsApp.region = ''; //this will hold user selection in order to change region. 
 // These are set as global variables so that they can hold value when called by infinite scroll. 
 
@@ -150,8 +152,10 @@ newsApp.events = () => {
         console.log(countryCode);
         // variable targetting option's other value
         const capCity = $(this).on('click').attr('data-othervalue');
+        // QUINN #2: I added this bit that captures the country name from
+        //👇 the user's dropdown selection and stores it on the global variable
         // variable for getting the name of the country selected
-        const nameOfCountry = $(this).text();
+        newsApp.nameOfCountry = $(this).text();
         // Calling the get Weather Function with both variables to change location of widget
         newsApp.getWeather(capCity, countryCode);
     });
@@ -209,7 +213,13 @@ newsApp.displayWeather = function(res) {
 
 
     // Converting the data to browser 
-    $('.region').text(`${cityName}, ${countryName}`);
+    //QUINN #3: this is the only bit of your code I actually changed.
+    //it used to be:
+    //$('.region').text(`${cityName}, ${countryName}`);
+    //It shouldn't break anything because this is just for display: display 
+    //the contents of this variable here. Instead of displaying "Object[Object]"
+    //now it displays the country name that was taken from the text of the drop-down item
+    $('.region').text(`${cityName}, ${newsApp.nameOfCountry}`);
     $('.weather-type').text(`${weatherType}`);
     $('.temp').text(`Current: ${currentTemp}°C`);
     $('.low-temp').text(`Low: ${lowTemp}°C`);
