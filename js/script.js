@@ -147,8 +147,11 @@ newsApp.events = () => {
     $('.mega-menu div a').on('click', function() {
         //variable targetting option value
         const countryCode = $(this).attr('value');
+        console.log(countryCode);
         // variable targetting option's other value
         const capCity = $(this).on('click').attr('data-othervalue');
+        // variable for getting the name of the country selected
+        const nameOfCountry = $(this).text();
         // Calling the get Weather Function with both variables to change location of widget
         newsApp.getWeather(capCity, countryCode);
     });
@@ -166,6 +169,7 @@ newsApp.getWeather = function(param) {
         dataType: 'json',
     }).then(function(res) {
         newsApp.displayWeather(res);
+        console.log(res)
     });
 };
 
