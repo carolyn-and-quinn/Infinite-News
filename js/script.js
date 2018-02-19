@@ -134,11 +134,13 @@ newsApp.events = () => {
     // Listen for change in dropdown to prompt article changes
     $('.mega-menu div a').on('click', function() {
         // Get the value of the region selected
-        const region = $(this).attr('value');
-        // pass region as an argument when calling the function
-        newsApp.getNews(1, region);
+        newsApp.region = $(this).attr('value');
         // Find Main and clear what was previously appended
         $('main').empty();
+        // Reset page counter for new dataset
+        newsApp.pagecount = 2;
+        // pass region as an argument when calling the function
+        newsApp.getNews(1, newsApp.region);
     });
 
     // Listen for change in dropdown to prompt weather widget
@@ -217,9 +219,8 @@ newsApp.displayWeather = function(res) {
 newsApp.infinite = function() {
     $(window).scroll(function() {
         if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-            newsApp.getNews(newsApp.pagecount);
+            newsApp.getNews(newsApp.pagecount, newsApp.region);
             newsApp.pagecount = newsApp.pagecount + 1;
-            console.log("scroll");
         }
     });
 }
