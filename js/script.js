@@ -127,7 +127,7 @@ newsApp.events = () => {
 // Get Weather Function (AJAX call)
 newsApp.getWeather = function(param) {
     const siteStart = "http://api.openweathermap.org/data/2.5/weather?q=";
-    const siteEnd = "&APPID=183331d42e68a071ea966b457bce93c1"
+    const siteEnd = "&APPID=3c7d03bbd65ee72adad3ae07a733859d"
     $.ajax({
         url: siteStart + param + siteEnd,
         method: 'GET',
@@ -156,7 +156,14 @@ newsApp.displayWeather = function(res) {
     // Country Name
     const countryName = $('#country').find('option:selected').text();
     // Date
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     const unix = new Date();
+    const unixMonth = monthNames[unix.getMonth()];
+    const unixDayName = daysOfWeek[unix.getDay()];
+    const unixDate = unix.getDate();
+    const unixYear = unix.getFullYear();
+
 
     // Converting the data to browser 
     $('.region').text(`${cityName}, ${countryName}`);
@@ -165,7 +172,8 @@ newsApp.displayWeather = function(res) {
     $('.low-temp').text(`Low: ${lowTemp}°C`);
     $('.high-temp').text(`High: ${highTemp}°C`);
     $('.weather-image').attr('src', weatherPhoto);
-    $('.datestamp').text(`${unix}`);
+    $('.datestamp').text(`${unixDayName}, ${unixMonth} ${unixDate}, ${unixYear}`);
+
 }
 
 // Initialize Function

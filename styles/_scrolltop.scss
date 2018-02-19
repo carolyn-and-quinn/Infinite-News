@@ -37,19 +37,30 @@
     }           
 }
 
+.datestamp{
+    font-weight: 600;
+    word-spacing: 0.1rem;
+    padding-left: 10px;
+}
 
 form{
     padding-left: 20px;
     background: $main-color;
     color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
     padding: 10px 0;
     font-size: 0.8rem;
     label{
         padding: 0 10px 0 10px;
     }
     select{
+        border: 1px solid white;
         background: $main-color;
         color: white;
+        option{
+            padding: 10px;
+        }
     }
 }
 
@@ -117,3 +128,23 @@ form{
 .temps p{
     margin: 2px 0;
 }
+
+// Mega Nav Styles
+
+// nav{
+//     background: black;
+//     text-align: center;
+//     a{
+//         color: white;
+//         text-decoration: none;
+//     }
+//     li{
+//         list-style:none;
+//     }
+// }
+// .countries-list{
+//     display: none;
+// }
+// .show-menu{
+//     display: block;
+// }

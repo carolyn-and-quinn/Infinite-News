@@ -45,17 +45,27 @@
     transform: scale(0.9);
     opacity: 0.7; } }
 
+.datestamp {
+  font-weight: 600;
+  word-spacing: 0.1rem;
+  padding-left: 10px; }
+
 form {
   padding-left: 20px;
   background: #232322;
   color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
   padding: 10px 0;
   font-size: 0.8rem; }
   form label {
     padding: 0 10px 0 10px; }
   form select {
+    border: 1px solid white;
     background: #232322;
     color: white; }
+    form select option {
+      padding: 10px; }
 
 .widget-container {
   display: -webkit-box;
