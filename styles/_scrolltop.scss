@@ -5,9 +5,9 @@
   content: 'f35b';
   font-size: 2.5rem;
   position: fixed;
-  right: 60px;
+  right: 20px;
   bottom: 20px;
-  z-index: 3000;
+  z-index: 3000000;
 }
 
 /* Pulse Animation */
@@ -37,6 +37,34 @@
     }           
 }
 
+.datestamp{
+    font-weight: 600;
+    word-spacing: 0.1rem;
+    padding-left: 10px;
+}
+
+form{
+    padding-left: 20px;
+    background: $main-color;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    padding: 10px 0;
+    font-size: 0.8rem;
+    label{
+        padding: 0 10px 0 10px;
+    }
+    select{
+        border: 1px solid white;
+        background: $main-color;
+        color: white;
+        option{
+            padding: 10px;
+        }
+    }
+}
+
+
 // Widget Styles
 
 .widget-container{
@@ -46,7 +74,7 @@
     font-family: 'Oswald', sans-serif;
     border-bottom: 1px solid black;
     height: 100%;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
     .datestamp{
         font-size: 1.2rem;
         margin: 0;
@@ -99,4 +127,70 @@
 
 .temps p{
     margin: 2px 0;
+}
+
+
+// Mega Menu Styles
+.options{
+    background: black;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.option-links{
+    padding: 15px 0 5px 0;
+    margin: 0;
+    color: white;
+    font-size: 1rem;
+}
+
+.fa-caret-down{
+    color: white;
+    margin-bottom: 5px;
+}
+
+.mega-menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: black;
+    font-size: 15px;
+    padding: 30px 0;
+}
+
+.first-block,
+.second-block,
+.third-block,
+.fourth-block,
+.fifth-block,
+.sixth-block{
+    display: flex;
+    flex-direction: column;
+}
+
+.first-block a,
+.second-block a,
+.third-block a,
+.fourth-block a,
+.fifth-block a,
+.sixth-block a{
+    color: white;
+    margin: 5px 0 5px 0;
+    text-align: left;
+    letter-spacing: 0.1rem;
+    text-decoration: none;
+    padding-bottom: 2px;
+    height: 20px;
+    display: inline;
+}
+
+.mega-menu div a:hover{
+    border-bottom: 1px solid white;
+    width: 100%;
+}
+
+.show-menu{
+    display: none;
 }

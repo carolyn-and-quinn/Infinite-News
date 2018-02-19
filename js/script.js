@@ -102,23 +102,39 @@ newsApp.printNews = function(articles) {
 
 //creates a function to handle all of our event listeners
 newsApp.events = () => {
+
+    // Dropdown toggle
+    $(".option-links").click(function (event) {
+        event.preventDefault();
+        $("nav").toggleClass("show-menu").slideToggle();
+    });
+
+    // Dropdown toggle
+    // $(".mega-menu div a").click(function (event) {
+    //     event.preventDefault();
+    //     $(this).siblings().addClass('active');
+    //     // $(this).siblings().removeClass('active');
+    // });
+
+   
+
+
     // Listen for change in dropdown to prompt article changes
-    $('#country').on('change', function() {
+    $('.mega-menu div a').on('click', function() {
         // Get the value of the region selected
-        const region = $(this).val();
+        const region = $(this).attr('value');
         // pass region as an argument when calling the function
         newsApp.getNews(1, region);
         // Find Main and clear what was previously appended
         $('main').empty();
-        console.log(region);
     });
 
     // Listen for change in dropdown to prompt weather widget
-    $('#country').on('change', function() {
+    $('.mega-menu div a').on('click', function() {
         //variable targetting option value
-        const countryCode = $(this).val();
+        const countryCode = $(this).attr('value');
         // variable targetting option's other value
-        const capCity = $(this).find('option:selected').attr('data-othervalue');
+        const capCity = $(this).on('click').attr('data-othervalue');
         // Calling the get Weather Function with both variables to change location of widget
         newsApp.getWeather(capCity, countryCode);
     });
@@ -127,7 +143,7 @@ newsApp.events = () => {
 // Get Weather Function (AJAX call)
 newsApp.getWeather = function(param) {
     const siteStart = "http://api.openweathermap.org/data/2.5/weather?q=";
-    const siteEnd = "&APPID=183331d42e68a071ea966b457bce93c1"
+    const siteEnd = "&APPID=3c7d03bbd65ee72adad3ae07a733859d"
     $.ajax({
         url: siteStart + param + siteEnd,
         method: 'GET',
@@ -154,9 +170,16 @@ newsApp.displayWeather = function(res) {
     // Weather Photo
     const weatherPhoto = "http://openweathermap.org/img/w/" + weatherCode + ".png";
     // Country Name
-    const countryName = $('#country').find('option:selected').text();
+    const countryName = $('.mega-menu div a').find('active').text();
     // Date
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     const unix = new Date();
+    const unixMonth = monthNames[unix.getMonth()];
+    const unixDayName = daysOfWeek[unix.getDay()];
+    const unixDate = unix.getDate();
+    const unixYear = unix.getFullYear();
+
 
     // Converting the data to browser 
     $('.region').text(`${cityName}, ${countryName}`);
@@ -165,7 +188,8 @@ newsApp.displayWeather = function(res) {
     $('.low-temp').text(`Low: ${lowTemp}°C`);
     $('.high-temp').text(`High: ${highTemp}°C`);
     $('.weather-image').attr('src', weatherPhoto);
-    $('.datestamp').text(`${unix}`);
+    $('.datestamp').text(`${unixDayName}, ${unixMonth} ${unixDate}, ${unixYear}`);
+
 }
 
 // Initialize Function
