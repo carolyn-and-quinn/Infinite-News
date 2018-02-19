@@ -125,6 +125,19 @@ newsApp.selectArticlesToStyle = () => {
 
 }
 
+newsApp.randomColor = () => {
+    // QUINN #4: Please have a look and change the colour selection if you like!
+    const accentColor = ['firebrick', 'cadetblue', 'pink', 'tomato', 'crimson', 'darkolivegreen', 'midnightblue', 'rosybrown', ]
+
+    //Select random color 
+    const randoColorSelector = Math.floor(Math.random() * accentColor.length);
+    const randomColor = accentColor[randoColorSelector]
+
+    //Reset accent color on page
+    //Using CSS variables instead of SCSS variables so that it can be changed with jQuery
+    $('html').css(`--accentColor`, `${randomColor}`);
+}
+
 //Handle all of our event listeners
 newsApp.events = () => {
 
@@ -151,13 +164,14 @@ newsApp.events = () => {
         newsApp.pagecount = 2;
         // pass region as an argument when calling the function
         newsApp.getNews(1, newsApp.region);
+        //When the user selects a country, the accent colour is reset to a random colour
+        newsApp.randomColor();
     });
 
     // Listen for change in dropdown to prompt weather widget
     $('.mega-menu div a').on('click', function() {
         //variable targetting option value
         const countryCode = $(this).attr('value');
-        console.log(countryCode);
         // variable targetting option's other value
         const capCity = $(this).on('click').attr('data-othervalue');
         // QUINN #2: I added this bit that captures the country name from
@@ -260,6 +274,9 @@ newsApp.init = function() {
     // For future: app could detect user's location and use that here on load
     newsApp.infinite(); //infinite scroll
     newsApp.smoothScroll(); //smooth scroll
+    //QUINN #5
+    //Do you think that a random colour should be definined on first load? If so, uncommnet this 👇
+    //newsApp.randomColor();
 };
 
 $(function() {
