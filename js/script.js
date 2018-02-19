@@ -1,25 +1,12 @@
 // Main newsApp Object
 const newsApp = {};
 
-// Infinite Scroll Function
-newsApp.infinite = function () {
-    $(window).scroll(function () {
-        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-            newsApp.getNews(newsApp.pagecount);
-            newsApp.pagecount = newsApp.pagecount + 1;
-            console.log("scroll");
-        }
-    });
-}
+// Global Variables
+newsApp.pagecount = 2; //iterates in order to enable infinite scroll
+newsApp.region = ''; //this will hold user selection in order to change region. 
+// These are set as global variables so that they can hold value when called by infinite scroll. 
 
-// Global Variable 
-newsApp.pagecount = 2;
-
-// Smooth Scroll
-$('a').smoothScroll({
-    offset: 0
-});
-
+//NEWS FUNCTIONS
 // Get News Function
 newsApp.getNews = (pageNumber, region) => {
     $.ajax({
@@ -30,21 +17,19 @@ newsApp.getNews = (pageNumber, region) => {
             apiKey: 'c6efa387136e459096d7201bab344662',
             language: 'en',
             pageSize: 10,
-            page: pageNumber,
-            country: region
+            page: pageNumber, //First called on page 1, then iterates with infinite scroll
+            country: region //Set by user. If null, displays news from all regions 
         }
     }).then(function(res) {
         let articles = res.articles;
-        // console.log(articles);
         newsApp.printNews(articles);
     });
 };
 
 // Print News Function
 newsApp.printNews = function(articles) {
-    // console.log(articles);
     articles.forEach(function(article) {
-        // console.log('number of articles', articles.length);
+        // could also have been written as👇
         // const { author, description, urlToImage, url, title, publishedAt } = article;
         const author = article.author;
         const publisher = article.source.name;
@@ -53,10 +38,16 @@ newsApp.printNews = function(articles) {
         const webLink = article.url;
         const headline = article.title;
         const pubDate = article.publishedAt;
-        // console.log(image);
+
+        //The articles vary in terms of what content they contain. 
+        //We will print them all on the page selectively depending on what we get back.
+
+        //The article to hold the information
         $('main').append(
             `<article></article>`
         );
+
+        //If there is a headline, append it first
         if (headline !== null && headline !== undefined) {
             $('article:last-of-type').append(
                 `
@@ -64,34 +55,46 @@ newsApp.printNews = function(articles) {
             `
             );
         }
+
+        //Append a paragraph to hold publisher & author
         $('article:last-of-type').append(
             `<p class="atribution"></p>`
         );
+
+        //If there is a publisher, append to the paragraph
         if (publisher !== null && publisher !== undefined) {
             $('.atribution:last-of-type').append(
                 ` <span class="publication">${publisher}</span>
             `
             );
         }
+
+        //If there is data for the author, append it to the paragraph
         if (author !== null && author !== undefined) {
             $('.atribution:last-of-type').append(
                 `<span class="author">${author}</span>
             `
             );
         }
+
+        //If there is an article discription, append it to the article
         if (description !== null && description !== undefined) {
             $('article:last-of-type').append(
                 `<p class="preview-text">${description}</p>`
             );
         }
+
+        //If there is an image, append it to the article
         if (image !== null && image !== undefined) {
             $('article:last-of-type').append(
                 `<img src="${image}"/>`
             );
         }
+
+        //Append the URL to the whole article: open in a new tab
         if (webLink !== null && webLink !== undefined) {
             $('article:last-of-type').append(
-                `<p><a href="${webLink}">Read More</a></p>`
+                `<p><a href="${webLink}" target="_blank">Read More</a></p>`
             );
         }
     });
@@ -100,24 +103,32 @@ newsApp.printNews = function(articles) {
 
 };
 
-//creates a function to handle all of our event listeners
+//Add classes to the articles depending on what information they contain
+//This will help us choose where to place them in the CSS grid
+newsApp.selectArticlesToStyle = () => {
+    $('article:has(h2):has(.preview-text):has(img):has(a)').addClass('full-data-set');
+
+    $('article:not(:has(img))').addClass('no-image');
+
+    $('article:not(:has(h2))').addClass('no-headline');
+
+}
+
+//Handle all of our event listeners
 newsApp.events = () => {
 
     // Dropdown toggle
-    $(".option-links").click(function (event) {
+    $(".option-links").click(function(event) {
         event.preventDefault();
         $("nav").toggleClass("show-menu").slideToggle();
     });
 
     // Dropdown toggle
-    $(".mega-menu div a").click(function (event) {
+    $(".mega-menu div a").click(function(event) {
         event.preventDefault();
         $(this).siblings().addClass('active');
         // $(this).siblings().removeClass('active');
     });
-
-   
-
 
     // Listen for change in dropdown to prompt article changes
     $('.mega-menu div a').on('click', function() {
@@ -138,6 +149,8 @@ newsApp.events = () => {
         // Calling the get Weather Function with both variables to change location of widget
         newsApp.getWeather(capCity, countryCode);
     });
+
+
 }
 
 // Get Weather Function (AJAX call)
@@ -170,14 +183,13 @@ newsApp.displayWeather = function(res) {
     // Weather Photo
     const weatherPhoto = "http://openweathermap.org/img/w/" + weatherCode + ".png";
     // Country Name
-    const countryName = $(".mega-menu div a").click(function (event) {
+    const countryName = $(".mega-menu div a").click(function(event) {
         event.preventDefault();
         $(this).text();
         // $(this).siblings().removeClass('active');
     });
-    
-    
-    
+
+
     $('.mega-menu div a').find('active').text();
     // Date
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -200,15 +212,34 @@ newsApp.displayWeather = function(res) {
 
 }
 
+// Infinite Scroll Function
+newsApp.infinite = function() {
+    $(window).scroll(function() {
+        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+            newsApp.getNews(newsApp.pagecount);
+            newsApp.pagecount = newsApp.pagecount + 1;
+            console.log("scroll");
+        }
+    });
+}
+
+newsApp.smoothScroll = function() {
+    $('a').smoothScroll({
+        offset: 0
+    });
+}
+
 // Initialize Function
 newsApp.init = function() {
-    newsApp.getNews(1);
-    newsApp.events();
-    newsApp.getWeather('Toronto,ca');
-    newsApp.infinite();
+    newsApp.getNews(1); //calls news on page 1, region null on first pageload
+    newsApp.events(); //event listeners
+    newsApp.getWeather('Toronto,ca'); //Defaults weather to Toronto. 
+    // For future: app could detect user's location and use that here on load
+    newsApp.infinite(); //infinite scroll
+    newsApp.smoothScroll(); //smooth scroll
 };
 
 $(function() {
     newsApp.init();
-    
+
 });
