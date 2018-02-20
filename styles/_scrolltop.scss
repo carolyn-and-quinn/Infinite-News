@@ -1,4 +1,4 @@
-// Scroll to Top
+// Scroll to Top Icon
 .fa-arrow-alt-circle-up {
     color: var(--accentColor);
     font-family: font-awesome;
@@ -39,6 +39,8 @@
     }
 }
 
+// Weather Widget
+
 .datestamp {
     font-weight: 600;
     word-spacing: 0.1rem;
@@ -46,6 +48,7 @@
 }
 
 form {
+    display: none;
     padding-left: 20px;
     background: $main-color;
     color: white;
@@ -82,9 +85,6 @@ form {
 }
 
 .widget {
-    // position: absolute;
-    // right: 0;
-    // top: 0;
     padding: 10px 10px 10px 0;
     display: flex;
     justify-content: flex-end;
@@ -128,7 +128,46 @@ form {
     margin: 2px 0;
 }
 
-// Mega Menu Styles
+// Nav Styles
+
+nav{
+    display: flex;
+    flex-direction: column;
+    .third-of-nav{
+    display: flex;
+    justify-content: space-around;
+    width: 33.33%;
+    }
+    .credit{
+        text-align: center;
+        text-transform: uppercase;
+        background: black;
+        padding: 20px 0;
+        font-size: 1vw;
+        font-weight: 400;
+        letter-spacing: 0.1rem;
+        display: flex;
+        justify-content: center;
+        a{
+            border-top: 1px solid lightgrey;
+            width: 200px;
+            display: block;
+            color: lightgrey;
+            padding: 10px 0;
+            text-decoration: none;
+            &:hover{
+                border-top: 1px solid var(--accentColor);
+                color: var(--accentColor); 
+            }
+        }
+    }
+}
+
+
+
+
+// Select Country Options
+
 .options {
     background: black;
     margin: 0;
@@ -148,50 +187,110 @@ form {
 }
 
 .fa-caret-down {
-    color: white;
+    color: var(--accentColor);
     margin-bottom: 5px;
 }
+
+// Mega Menu Styles
 
 .mega-menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     background: black;
-    font-size: 15px;
-    padding: 30px 0;
+    font-size: 1vw;
+    padding: 30px 5%;
 }
 
-.first-block,
-.second-block,
-.third-block,
-.fourth-block,
-.fifth-block,
-.sixth-block {
+.block {
     display: flex;
     flex-direction: column;
+    // flex-basis: 50%;
+    // margin-left: 2%;
 }
 
-.first-block a,
-.second-block a,
-.third-block a,
-.fourth-block a,
-.fifth-block a,
-.sixth-block a {
+.block a{
     color: white;
-    margin: 5px 0 5px 0;
-    text-align: left;
+    text-align: center;
     letter-spacing: 0.1rem;
     text-decoration: none;
-    padding-bottom: 2px;
-    height: 20px;
     display: inline;
 }
 
-.mega-menu div a:hover {
-    border-bottom: 1px solid white;
+.animate{
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+
+.animate a{
+    height: 40px;
+    border-bottom: 0 solid transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.animate a:hover {
+    border-bottom: 4px solid var(--accentColor);
     width: 100%;
 }
 
 .show-menu {
     display: none;
+}
+
+@media (max-width: 940px) {
+    .mega-menu{
+        font-size: 2vw;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    .third-of-nav{
+       flex-direction: column;
+    }
+
+    .third-of-nav:last-child{
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+
+}
+
+
+@media (max-width: 480px) {
+
+    .mega-menu{
+       width: 100%;
+      
+       background: orange;
+    }
+
+    .third-of-nav{
+        width: 100%;
+         align-items: center;
+    }
+
+    .block{
+        display: block;
+        width: 100%;
+    }
+    .block a{
+        display: block;
+    }
+
+    .animate{
+        margin: 0;
+        padding: 0;
+    }
+
+    .animate a{
+        margin: 0;
+        padding: 0;
+        height: auto;
+    }
+    
+
+
 }

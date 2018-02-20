@@ -127,7 +127,7 @@ newsApp.selectArticlesToStyle = () => {
 
 newsApp.randomColor = () => {
     // QUINN #4: Please have a look and change the colour selection if you like!
-    const accentColor = ['firebrick', 'cadetblue', 'pink', 'tomato', 'crimson', 'darkolivegreen', 'midnightblue', 'rosybrown',]
+    const accentColor = ['firebrick', 'cadetblue', 'pink', 'tomato', 'crimson', 'darkolivegreen', 'midnightblue', 'rosybrown', 'goldenrod', 'silver', 'coral']
 
     //Select random color 
     const randoColorSelector = Math.floor(Math.random() * accentColor.length);
@@ -214,12 +214,6 @@ newsApp.displayWeather = function (res) {
     const weatherCode = res.weather[0].icon;
     // Weather Photo
     const weatherPhoto = "http://openweathermap.org/img/w/" + weatherCode + ".png";
-    // Country Name
-    const countryName = $(".mega-menu div a").click(function (event) {
-        event.preventDefault();
-        $(this).text();
-        // $(this).siblings().removeClass('active');
-    });
 
 
     $('.mega-menu div a').find('active').text();
