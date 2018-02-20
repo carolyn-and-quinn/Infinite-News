@@ -3,8 +3,7 @@ const newsApp = {};
 
 // Global Variables
 newsApp.pagecount = 2; //iterates in order to enable infinite scroll
-newsApp.nameOfCountry = 'Canada'; //QUINN #1: I added this so that the country name can be accessed
-//There is probably a better way to pass it but I wanted to touch your code as little as possible
+newsApp.nameOfCountry = 'Canada'; //Holds country name on load: updated with user selects region
 newsApp.region = ''; //this will hold user selection in order to change region. 
 // These are set as global variables so that they can hold value when called by infinite scroll. 
 
@@ -22,15 +21,15 @@ newsApp.getNews = (pageNumber, region) => {
             page: pageNumber, //First called on page 1, then iterates with infinite scroll
             country: region //Set by user. If null, displays news from all regions 
         }
-    }).then(function (res) {
+    }).then(function(res) {
         let articles = res.articles; //Capture articles
         newsApp.printNews(articles); //Pass them to newsApp.printNews
     });
 };
 
 // Print News Function
-newsApp.printNews = function (articles) {
-    articles.forEach(function (article) {
+newsApp.printNews = function(articles) {
+    articles.forEach(function(article) {
         // could also have been written as👇
         //// const { author, description, urlToImage, url, title, publishedAt } = article;
         const author = article.author;
@@ -100,7 +99,8 @@ newsApp.printNews = function (articles) {
             );
         }
 
-        //Append a twitter share button
+        //Append a twitter share button - only if there is a web link to share
+        // Tags us because we are shameless
         if (webLink !== null && webLink !== undefined) {
             $('article:last-of-type').append(
                 `<p><a class="twitter" href="https://twitter.com/intent/tweet?text=${headline}%20${webLink}%20via%20@endless_times" target="_blank">Share on Twitter</a></p>`
@@ -126,7 +126,7 @@ newsApp.selectArticlesToStyle = () => {
 }
 
 newsApp.randomColor = () => {
-    // QUINN #4: Please have a look and change the colour selection if you like!
+    // Colours to select from on page load
     const accentColor = ['firebrick', 'cadetblue', 'pink', 'tomato', 'crimson', 'darkolivegreen', 'midnightblue', 'rosybrown', 'goldenrod', 'silver', 'coral', 'palegreen']
 
     //Select random color 
@@ -142,20 +142,20 @@ newsApp.randomColor = () => {
 newsApp.events = () => {
 
     // Dropdown toggle
-    $(".option-links").click(function (event) {
+    $(".option-links").click(function(event) {
         event.preventDefault();
         $("nav").toggleClass("show-menu").slideToggle();
     });
 
     // Dropdown toggle
-    $(".mega-menu div a").click(function (event) {
+    $(".mega-menu div a").click(function(event) {
         event.preventDefault();
         $(this).siblings().addClass('active');
         // $(this).siblings().removeClass('active');
     });
 
     // Listen for change in dropdown to prompt article changes
-    $('.mega-menu div a').on('click', function () {
+    $('.mega-menu div a').on('click', function() {
         // Get the value of the region selected
         newsApp.region = $(this).attr('value');
         // Find Main and clear what was previously appended
@@ -169,7 +169,7 @@ newsApp.events = () => {
     });
 
     // Listen for change in dropdown to prompt weather widget
-    $('.mega-menu div a').on('click', function () {
+    $('.mega-menu div a').on('click', function() {
         //variable targetting option value
         const countryCode = $(this).attr('value');
         // variable targetting option's other value
@@ -183,7 +183,7 @@ newsApp.events = () => {
     // ******** Alternative Dropdown for Mobile ********
 
     // Listen for change in dropdown to prompt article changes
-    $('#country').on('change', function () {
+    $('#country').on('change', function() {
         // Get the value of the region selected
         newsApp.region = $(this).val();
         // Find Main and clear what was previously appended
@@ -198,7 +198,7 @@ newsApp.events = () => {
 
 
     // Listen for change in dropdown to prompt weather widget
-    $('#country').on('change', function () {
+    $('#country').on('change', function() {
         //variable targetting option value
         const countryCode = $(this).val();
         // variable targetting option's other value
@@ -209,20 +209,20 @@ newsApp.events = () => {
 }
 
 // Get Weather Function (AJAX call)
-newsApp.getWeather = function (param) {
+newsApp.getWeather = function(param) {
     const siteStart = "http://api.openweathermap.org/data/2.5/weather?q=";
     const siteEnd = "&APPID=3c7d03bbd65ee72adad3ae07a733859d"
     $.ajax({
         url: siteStart + param + siteEnd,
         method: 'GET',
         dataType: 'json',
-    }).then(function (res) {
+    }).then(function(res) {
         newsApp.displayWeather(res);
     });
 };
 
 // function for displaying Weather
-newsApp.displayWeather = function (res) {
+newsApp.displayWeather = function(res) {
     // City Name
     const cityName = res.name;
     // Weather Type
@@ -262,8 +262,8 @@ newsApp.displayWeather = function (res) {
 }
 
 // Infinite Scroll Function
-newsApp.infinite = function () {
-    $(window).scroll(function () {
+newsApp.infinite = function() {
+    $(window).scroll(function() {
         if ($(window).scrollTop() == $(document).height() - $(window).height()) {
             newsApp.getNews(newsApp.pagecount, newsApp.region);
             newsApp.pagecount = newsApp.pagecount + 1;
@@ -272,26 +272,27 @@ newsApp.infinite = function () {
 }
 
 // Smooth Scroll
-newsApp.smoothScroll = function () {
+newsApp.smoothScroll = function() {
     $('a').smoothScroll({
         offset: 0
     });
 }
 
 // Initialize Function
-newsApp.init = function () {
+newsApp.init = function() {
     newsApp.getNews(1); //calls news on page 1, region null on first pageload
     newsApp.events(); //event listeners
     newsApp.getWeather('Toronto,ca'); //Defaults weather to Toronto. 
     // For future: app could detect user's location and use that here on load
     newsApp.infinite(); //infinite scroll
     newsApp.smoothScroll(); //smooth scroll
-    //QUINN #5
-    //Do you think that a random colour should be definined on first load? If so, uncommnet this 👇
+    //Selects random accent colour on load
     newsApp.randomColor();
 };
 
 // Document Ready
-$(function () {
+$(function() {
     newsApp.init();
 });
+
+//WAHOO!
