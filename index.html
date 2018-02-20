@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!--Good luck, Quinn!-->
-
 <head>
 
 
@@ -20,91 +17,293 @@
 
 <body>
     <span id="scroll"></span>
-    <!-- Scroll to top -->
+
+    <!-- Header -->
     <header>
+        <!-- Scroll to Top Icon -->
         <a href="#scroll" class="scroll-to-top">
             <i class="far fa-arrow-alt-circle-up fa-5x pulse"></i>
         </a>
 
         <h1>The Endless Times</h1>
 
+        <!-- Link to Expand Mega Menu -->
         <div class="options">
             <p class="option-links">Select Country</p>
             <a href="#" class="option-links pulse"><i class="fas fa-caret-down"></i></a>
         </div>
+
+        <!-- Mobile Dropdown -->
+        <form action="">
+            <label for="country" class="option-links">Select Country</label>
+            <select name="country" id="country">
+                <option value="ca" data-othervalue="Ottawa">Canada</option>
+                <option value="us" data-othervalue="Washington">US</option>
+                <option value="au" data-othervalue="Canberra">Australia</option>
+                <option value="jp" data-othervalue="Tokyo">Japan</option>
+                <option value="ae" data-othervalue="Abu Dhabi">United Arab Emirates</option>
+                <option value="ar" data-othervalue="Buenos Aires">Argentina</option>
+                <option value="at" data-othervalue="Vienna">Austria</option>
+                <option value="be" data-othervalue="Brussels">Belgium</option>
+                <option value="bg" data-othervalue="Sofia">Bulgaria</option>
+                <option value="br" data-othervalue="Brasilia">Brazil</option>
+                <option value="ch" data-othervalue="Bern">Switzerland</option>
+                <option value="cn" data-othervalue="Beijing">China</option>
+                <option value="co" data-othervalue="Bogota">Colombia</option>
+                <option value="cu" data-othervalue="Havana">Cuba</option>
+                <option value="cz" data-othervalue="Prague">Czech Republic</option>
+                <option value="de" data-othervalue="Berlin">Germany</option>
+                <option value="eg" data-othervalue="Cairo">Egypt</option>
+                <option value="gb" data-othervalue="London">Great Britain</option>
+                <option value="gr" data-othervalue="Athens">Greece</option>
+                <option value="hk" data-othervalue="Central">Hong Kong</option>
+                <option value="hu" data-othervalue="Budapest">Hungary</option>
+                <option value="id" data-othervalue="Jakarta">Indonesia</option>
+                <option value="ie" data-othervalue="Dublin">Ireland</option>
+                <option value="il" data-othervalue="Tel Aviv">Israel</option>
+                <option value="in" data-othervalue="New Delhi">India</option>
+                <option value="it" data-othervalue="Rome">Italy</option>
+                <option value="kr" data-othervalue="Seoul">South Korea</option>
+                <option value="lt" data-othervalue="Vilnius">Lithuania</option>
+                <option value="lv" data-othervalue="Riga">Latvia</option>
+                <option value="ma" data-othervalue="Rabat">Morocco</option>
+                <option value="mx" data-othervalue="Mexico City">Mexico</option>
+                <option value="my" data-othervalue="Kuala Lumpur">Malaysia</option>
+                <option value="ng" data-othervalue="Abuja">Nigeria</option>
+                <option value="nl" data-othervalue="Amsterdam">Netherlands</option>
+                <option value="no" data-othervalue="Oslo">Norway</option>
+                <option value="nz" data-othervalue="Wellington">New Zealand</option>
+                <option value="ph" data-othervalue="Manila">Philippines</option>
+                <option value="pl" data-othervalue="Warsaw">Poland</option>
+                <option value="pt" data-othervalue="Lisbon">Portugal</option>
+                <option value="ro" data-othervalue="Bucharest">Romania</option>
+                <option value="rs" data-othervalue="Belgrade">Serbia</option>
+                <option value="ru" data-othervalue="Moscow">Russia</option>
+                <option value="sa" data-othervalue="Riyadh">Saudi Arabia</option>
+                <option value="se" data-othervalue="Stockholm">Sweden</option>
+                <option value="sg" data-othervalue="Singapore">Singapore</option>
+                <option value="si" data-othervalue="Ljubljana">Slovenia</option>
+                <option value="sk" data-othervalue="Bratislava">Slovakia</option>
+                <option value="th" data-othervalue="Bangkok">Thailand</option>
+                <option value="tr" data-othervalue="Ankara">Turkey</option>
+                <option value="tw" data-othervalue="Taipei">Taiwan</option>
+                <option value="ua" data-othervalue="Kyiv">Ukraine</option>
+                <option value="ve" data-othervalue="Caracas">Venezuela</option>
+                <option value="za" data-othervalue="Cape Town">South Africa</option>
+            </select>
+        </form>
+
+        <!-- Main Navigation -->
         <nav class="show-menu">
+            <!-- Mega Menu Section -->
             <section class="mega-menu">
-                <div class="first-block">
-                    <a href="#" class="active" value="ar" data-othervalue="Buenos Aires">Argentina</a>
-                    <a href="#" value="at" data-othervalue="Vienna">Austria</a>
-                    <a href="#" value="au" data-othervalue="Canberra">Australia</a>
-                    <a href="#" value="be" data-othervalue="Brussels">Belgium</a>
-                    <a href="#" value="br" data-othervalue="Brasia">Brazil</a>
-                    <a href="#" value="bg" data-othervalue="Sofia">Bulgaria</a>
-                    <a href="#" value="ca" data-othervalue="Ottawa" class="active">Canada</a>
-                    <a href="#" value="cn" data-othervalue="Beijing">China</a>
-                    <a href="#" value="co" data-othervalue="Bogota">Colombia</a>
-                </div>
+                <!-- Third of Navigation (1/3) -->
+                <div class="third-of-nav">
+                    <!-- Block of Country Links -->
+                    <div class="block">
+                        <div class="animate">
+                            <a href="#" value="ar" data-othervalue="Buenos Aires">Argentina</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="at" data-othervalue="Vienna">Austria</a>
+                        </div>
+                        
+                        <div class="animate">
+                            <a href="#" value="au" data-othervalue="Canberra">Australia</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="be" data-othervalue="Brussels">Belgium</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#"  value="br" data-othervalue="Brasilia">Brazil</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="bg" data-othervalue="Sofia">Bulgaria</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="ca" data-othervalue="Ottawa" class="active">Canada</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="cn" data-othervalue="Beijing">China</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="co" data-othervalue="Bogota">Colombia</a>
+                        </div>
+                    </div>
+                    <!-- / Block of Country Links -->
 
-                <div class="second-block">
-                    <a href="#" value="cu" data-othervalue="Havana">Cuba</a>
-                    <a href="#" value="cz" data-othervalue="Prague">Czech Republic</a>
-                    <a href="#" value="eg" data-othervalue="Cairo">Egypt</a>
-                    <a href="#" value="de" data-othervalue="Beran">Germany</a>
-                    <a href="#" value="gr" data-othervalue="Athens">Greece</a>
-                    <a href="#" value="hk" data-othervalue="Central">Hong Kong</a>
-                    <a href="#" value="hu" data-othervalue="Budapest">Hungary</a>
-                    <a href="#" value="in" data-othervalue="New Delhi">India</a>
-                    <a href="#" value="ie" data-othervalue="Duban">Ireland</a>
+                    <!-- Block of Country Links -->
+                    <div class="block">
+                        <div class="animate">
+                            <a href="#" value="cu" data-othervalue="Havana">Cuba</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="cz" data-othervalue="Prague">Czech Republic</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="eg" data-othervalue="Cairo">Egypt</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="de" data-othervalue="Berlin">Germany</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="gr" data-othervalue="Athens">Greece</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="hk" data-othervalue="Central">Hong Kong</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="hu" data-othervalue="Budapest">Hungary</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="in" data-othervalue="New Delhi">India</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="ie" data-othervalue="Dublin">Ireland</a>
+                        </div>
+                    </div>
+                    <!-- / Block of Country Links -->
                 </div>
+                <!-- / Third of Navigation (1/3) -->
 
-                <div class="third-block">
-                    <a href="#" value="il" data-othervalue="Tel Aviv">Israel</a>
-                    <a href="#" value="it" data-othervalue="Rome">Italy</a>
-                    <a href="#" value="jp" data-othervalue="Tokyo">Japan</a>
-                    <a href="#" value="lt" data-othervalue="Vilnius">Lithuania</a>
-                    <a href="#" value="lv" data-othervalue="Riga">Latvia</a>
-                    <a href="#" value="my" data-othervalue="Kuala Lumpur">Malaysia</a>
-                    <a href="#" value="mx" data-othervalue="Mexico City">Mexico</a>
-                    <a href="#" value="ma" data-othervalue="Rabat">Morocco</a>
-                    <a href="#" value="nl" data-othervalue="Amsterdam">Netherlands</a>
-                </div>
+                <!-- Third of Navigation (2/3) -->
+                <div class="third-of-nav">
+                    <!-- Block of Country Links -->
+                    <div class="block">
+                        <div class="animate">
+                            <a href="#"  value="il" data-othervalue="Tel Aviv">Israel</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#"  value="it" data-othervalue="Rome">Italy</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#"  value="jp" data-othervalue="Tokyo">Japan</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#"  value="lt" data-othervalue="Vilnius">Lithuania</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#"  value="lv" data-othervalue="Riga">Latvia</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#"  value="my" data-othervalue="Kuala Lumpur">Malaysia</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#"  value="mx" data-othervalue="Mexico City">Mexico</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#"  value="ma" data-othervalue="Rabat">Morocco</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#"  value="nl" data-othervalue="Amsterdam">Netherlands</a>
+                        </div>
+                    </div>
+                    <!-- / Block of Country Links -->
 
-                <div class="fourth-block">
-                    <a href="#" value="nz" data-othervalue="Wellington">New Zealand</a>
-                    <a href="#" value="ng" data-othervalue="Abuja">Nigeria</a>
-                    <a href="#" value="no" data-othervalue="Oslo" data-newvalue="Norway">Norway</a>
-                    <a href="#" value="ph" data-othervalue="Manila">Philappines</a>
-                    <a href="#" value="pl" data-othervalue="Warsaw">Poland</a>
-                    <a href="#" value="pt" data-othervalue="Lisbon">Portugal</a>
-                    <a href="#" value="ro" data-othervalue="Bucharest">Romania</a>
-                    <a href="#" value="ru" data-othervalue="Moscow">Russia</a>
-                    <a href="#" value="sa" data-othervalue="Riyadh">Saudi Arabia</a>
+                    <!-- Block of Country Links -->
+                    <div class="block">
+                        <div class="animate">
+                            <a href="#" value="nz" data-othervalue="Wellington">New Zealand</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="ng" data-othervalue="Abuja">Nigeria</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="no" data-othervalue="Oslo" data-newvalue="Norway">Norway</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="ph" data-othervalue="Manila">Philappines</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="pl" data-othervalue="Warsaw">Poland</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="pt" data-othervalue="Lisbon">Portugal</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="ro" data-othervalue="Bucharest">Romania</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="ru" data-othervalue="Moscow">Russia</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="sa" data-othervalue="Riyadh">Saudi Arabia</a>
+                        </div>
+                    </div>
+                    <!-- / Block of Country Links -->
                 </div>
+                <!-- / Third of Navigation (2/3) -->
 
-                <div class="fifth-block">
-                    <a href="#" value="rs" data-othervalue="Belgrade">Serbia</a>
-                    <a href="#" value="sg" data-othervalue="Singapore">Singapore</a>
-                    <a href="#" value="sk" data-othervalue="Bratislava">Slovakia</a>
-                    <a href="#" value="si" data-othervalue="Ljubljana">Slovenia</a>
-                    <a href="#" value="za" data-othervalue="Cape Town">South Africa</a>
-                    <a href="#" value="kr" data-othervalue="Seodiv">South Korea</a>
-                    <a href="#" value="ch" data-othervalue="Bern">Switzerland</a>
-                    <a href="#" value="se" data-othervalue="Stockholm">Sweden</a>
-                    <a href="#" value="tw" data-othervalue="Taipei">Taiwan</a>
-                </div>
+                <!-- Third of Navigation (3/3) -->
+                <div class="third-of-nav">
+                    <!-- Block of Country Links -->
+                    <div class="block">
+                        <div class="animate">
+                            <a href="#" value="rs" data-othervalue="Belgrade">Serbia</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="sg" data-othervalue="Singapore">Singapore</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="sk" data-othervalue="Bratislava">Slovakia</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="si" data-othervalue="Ljubljana">Slovenia</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="za" data-othervalue="Cape Town">South Africa</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="kr" data-othervalue="Seodiv">South Korea</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="ch" data-othervalue="Bern">Switzerland</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="se" data-othervalue="Stockholm">Sweden</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="tw" data-othervalue="Taipei">Taiwan</a>
+                        </div>
+                    </div>
+                    <!--  / Block of Country Links -->
 
-                <div class="sixth-block">
-                    <a href="#" value="th" data-othervalue="Bangkok">Thailand</a>
-                    <a href="#" value="tr" data-othervalue="Ankara">Turkey</a>
-                    <a href="#" value="ua" data-othervalue="Kyiv">Ukraine</a>
-                    <a href="#" value="ae" data-othervalue="Abu Dhabi">United Arab Emirates</a>
-                    <a href="#" value="gb" data-othervalue="London">United Kingdom</a>
-                    <a href="#" value="us" data-othervalue="Washington">US</a>
-                    <a href="#" value="ve" data-othervalue="Caracas">Venezuela</a>
+                    <!-- Block of Country Links -->
+                    <div class="block">
+                        <div class="animate">
+                            <a href="#" value="th" data-othervalue="Bangkok">Thailand</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="tr" data-othervalue="Ankara">Turkey</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="ua" data-othervalue="Kyiv">Ukraine</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="ae" data-othervalue="Abu Dhabi">United Arab Emirates</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="gb" data-othervalue="London">United Kingdom</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="us" data-othervalue="Washington">US</a>
+                        </div>
+                        <div class="animate">
+                            <a href="#" value="ve" data-othervalue="Caracas">Venezuela</a>
+                        </div>
+                    </div>
+                    <!-- Block of Country Links -->
                 </div>
+                <!-- / Third of Navigation (3/3) -->
             </section>
+            <!-- / Mega Menu Section -->
+
+            <!-- News API Credit -->
+            <div class="credit">
+                <a href="https://newsapi.org">Powered by News API</a> 
+            </div>
         </nav>
+        <!-- / Nav -->
 
         <div class="widget-container">
             <!-- Date Widget -->
@@ -114,7 +313,9 @@
 
             <!-- Weather Widgit -->
             <div class="widget">
+                <!-- Region Name -->
                 <p class="region">Toronto, Canada</p>
+                <!-- Weather Type & Photo -->
                 <div class="middle">
                     <div class="weather-icon">
                         <img src="" alt="" class="weather-image">
@@ -122,6 +323,7 @@
                     <p class="weather-main"></p>
                     <p class="weather-type"></p>
                 </div>
+                <!-- Daily Temperature -->
                 <div class="temps">
                     <p class="temp"></p>
                     <p class="low-temp"></p>
@@ -129,69 +331,10 @@
                 </div>
             </div>
         </div>
-
-        <!-- Drop Down for selecting region -->
-        <!-- <form action="">
-            <label for="">Select Country</label>
-            <select name="country" id="country">
-            <option value="ca" data-othervalue="Ottawa">Canada</option>
-            <option value="us" data-othervalue="Washington">US</option>
-            <option value="au" data-othervalue="Canberra">Australia</option>
-            <option value="jp" data-othervalue="Tokyo">Japan</option>
-            <option value="ae" data-othervalue="Abu Dhabi">United Arab Emirates</option>
-            <option value="ar" data-othervalue="Buenos Aires">Argentina</option>
-            <option value="at" data-othervalue="Vienna">Austria</option>
-            <option value="be" data-othervalue="Brussels">Belgium</option>
-            <option value="bg" data-othervalue="Sofia">Bulgaria</option>
-            <option value="br" data-othervalue="Brasilia">Brazil</option>
-            <option value="ch" data-othervalue="Bern">Switzerland</option>
-            <option value="cn" data-othervalue="Beijing">China</option>
-            <option value="co" data-othervalue="Bogota">Colombia</option>
-            <option value="cu" data-othervalue="Havana">Cuba</option>
-            <option value="cz" data-othervalue="Prague">Czech Republic</option>
-            <option value="de" data-othervalue="Berlin">Germany</option>
-            <option value="eg" data-othervalue="Cairo">Egypt</option>
-            <option value="gb" data-othervalue="London">Great Britain</option>
-            <option value="gr" data-othervalue="Athens">Greece</option>
-            <option value="hk" data-othervalue="Central">Hong Kong</option>
-            <option value="hu" data-othervalue="Budapest">Hungary</option>
-            <option value="id" data-othervalue="Jakarta">Indonesia</option>
-            <option value="ie" data-othervalue="Dublin">Ireland</option>
-            <option value="il" data-othervalue="Tel Aviv">Israel</option>
-            <option value="in" data-othervalue="New Delhi">India</option>
-            <option value="it" data-othervalue="Rome">Italy</option>
-            <option value="kr" data-othervalue="Seoul">South Korea</option>
-            <option value="lt" data-othervalue="Vilnius">Lithuania</option>
-            <option value="lv" data-othervalue="Riga">Latvia</option>
-            <option value="ma" data-othervalue="Rabat">Morocco</option>
-            <option value="mx" data-othervalue="Mexico City">Mexico</option>
-            <option value="my" data-othervalue="Kuala Lumpur">Malaysia</option>
-            <option value="ng" data-othervalue="Abuja">Nigeria</option>
-            <option value="nl" data-othervalue="Amsterdam">Netherlands</option>
-            <option value="no" data-othervalue="Oslo">Norway</option>
-            <option value="nz" data-othervalue="Wellington">New Zealand</option>
-            <option value="ph" data-othervalue="Manila">Philippines</option>
-            <option value="pl" data-othervalue="Warsaw">Poland</option>
-            <option value="pt" data-othervalue="Lisbon">Portugal</option>
-            <option value="ro" data-othervalue="Bucharest">Romania</option>
-            <option value="rs" data-othervalue="Belgrade">Serbia</option>
-            <option value="ru" data-othervalue="Moscow">Russia</option>
-            <option value="sa" data-othervalue="Riyadh">Saudi Arabia</option>
-            <option value="se" data-othervalue="Stockholm">Sweden</option>
-            <option value="sg" data-othervalue="Singapore">Singapore</option>
-            <option value="si" data-othervalue="Ljubljana">Slovenia</option>
-            <option value="sk" data-othervalue="Bratislava">Slovakia</option>
-            <option value="th" data-othervalue="Bangkok">Thailand</option>
-            <option value="tr" data-othervalue="Ankara">Turkey</option>
-            <option value="tw" data-othervalue="Taipei">Taiwan</option>
-            <option value="ua" data-othervalue="Kyiv">Ukraine</option>
-            <option value="ve" data-othervalue="Caracas">Venezuela</option>
-            <option value="za" data-othervalue="Cape Town">South Africa</option>
-        </select>
-        </form> -->
     </header>
 
-    <!-- Main content -->
+
+    <!-- Main content (Appended Articles) -->
     <main>
 
 
@@ -204,6 +347,7 @@
     <!-- Smooth Scroll -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.1.2/jquery.smooth-scroll.min.js"></script>
 
+    <!-- Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
     <script src="js/script.js"></script>
