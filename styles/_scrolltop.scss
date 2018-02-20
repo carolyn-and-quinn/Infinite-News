@@ -5,11 +5,11 @@
     content: 'f35b';
     font-size: 2.5rem;
     position: fixed;
-    right: 70px;
-    bottom: 20px;
+    right: 5%;
+    bottom: 5%;
     z-index: 3000000;
     border-radius: 100%;
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
 }
 
 
@@ -39,37 +39,30 @@
     }
 }
 
-// Weather Widget
-
-.datestamp {
-    font-weight: 600;
-    word-spacing: 0.1rem;
-    padding-left: 10px;
-}
+// Mobile Dropdown Menu
 
 form {
     display: none;
-    padding-left: 20px;
+    padding: 10px 20px;
     background: $main-color;
     color: white;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
-    padding: 10px 0;
     font-size: 0.8rem;
-    label {
-        padding: 0 10px 0 10px;
-    }
     select {
         border: 1px solid white;
         background: $main-color;
         color: white;
+        padding: 10px;
+        margin-right: 10px;
         option {
             padding: 10px;
         }
     }
 }
 
-// Widget Styles
+// Weather Widget
+
 .widget-container {
     display: flex;
     justify-content: space-between;
@@ -77,10 +70,12 @@ form {
     font-family: 'Oswald', sans-serif;
     border-bottom: 1px solid black;
     height: 100%;
-    // margin-bottom: 10px;
     .datestamp {
         font-size: 1.2rem;
         margin: 0;
+        font-weight: 600;
+        word-spacing: 0.1rem;
+        padding-left: 10px;
     }
 }
 
@@ -128,6 +123,32 @@ form {
     margin: 2px 0;
 }
 
+// Select Country Options
+
+.options {
+    background: black;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    p {
+        padding-bottom: 0;
+    }
+}
+
+.option-links {
+    padding: 15px 10px 15px 0;
+    margin: 0;
+    color: white;
+    font-size: 1rem;
+}
+
+.fa-caret-down {
+    color: var(--accentColor);
+    margin-bottom: 5px;
+}
+
+
 // Nav Styles
 
 nav{
@@ -163,34 +184,6 @@ nav{
     }
 }
 
-
-
-
-// Select Country Options
-
-.options {
-    background: black;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    text-transform: uppercase;
-    p {
-        padding-bottom: 0;
-    }
-}
-
-.option-links {
-    padding: 15px 10px 15px 0;
-    margin: 0;
-    color: white;
-    font-size: 1rem;
-}
-
-.fa-caret-down {
-    color: var(--accentColor);
-    margin-bottom: 5px;
-}
-
 // Mega Menu Styles
 
 .mega-menu {
@@ -205,17 +198,15 @@ nav{
 .block {
     display: flex;
     flex-direction: column;
-    // flex-basis: 50%;
-    // margin-left: 2%;
+    a{
+        color: white;
+        text-align: center;
+        letter-spacing: 0.1rem;
+        text-decoration: none;
+        display: inline;
+    }
 }
 
-.block a{
-    color: white;
-    text-align: center;
-    letter-spacing: 0.1rem;
-    text-decoration: none;
-    display: inline;
-}
 
 .animate{
     width: 100%;
@@ -231,10 +222,6 @@ nav{
 .animate a:hover {
     border-bottom: 4px solid var(--accentColor);
     width: 100%;
-}
-
-.show-menu {
-    display: none;
 }
 
 @media (max-width: 940px) {
@@ -255,16 +242,59 @@ nav{
 }
 
 @media (max-width: 768px) {
+    .widget-container, 
+    .widget {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .middle{
+        border-top: 1px solid $main-color;
+        border-bottom: 1px solid $main-color;
+        border-left: 0;
+        border-right: 0;
+    }
 
+    .date-widget,
+    .region,
+    .widget,
+    .temps,
+    .middle{
+        margin-top: 20px;
+    }
+
+    .temps{
+        display: flex;
+        p{
+            border-right: 1px solid $main-color;
+            padding: 0 10px 0 10px;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+    }
+  
 }
 
 
 @media (max-width: 480px) {
+    nav,
+    .mega-menu,
+    .options{
+        display: none;
+    }
 
+    .option-links{
+        margin: 0;
+        padding: 0;
+    }
+
+    form{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     .mega-menu{
        width: 100%;
-      
-       background: orange;
     }
 
     .third-of-nav{
@@ -290,7 +320,4 @@ nav{
         padding: 0;
         height: auto;
     }
-    
-
-
 }

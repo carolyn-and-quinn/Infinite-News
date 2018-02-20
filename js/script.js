@@ -127,7 +127,7 @@ newsApp.selectArticlesToStyle = () => {
 
 newsApp.randomColor = () => {
     // QUINN #4: Please have a look and change the colour selection if you like!
-    const accentColor = ['firebrick', 'cadetblue', 'pink', 'tomato', 'crimson', 'darkolivegreen', 'midnightblue', 'rosybrown', 'goldenrod', 'silver', 'coral']
+    const accentColor = ['firebrick', 'cadetblue', 'pink', 'tomato', 'crimson', 'darkolivegreen', 'midnightblue', 'rosybrown', 'goldenrod', 'silver', 'coral', 'palegreen']
 
     //Select random color 
     const randoColorSelector = Math.floor(Math.random() * accentColor.length);
@@ -174,15 +174,38 @@ newsApp.events = () => {
         const countryCode = $(this).attr('value');
         // variable targetting option's other value
         const capCity = $(this).on('click').attr('data-othervalue');
-        // QUINN #2: I added this bit that captures the country name from
-        //👇 the user's dropdown selection and stores it on the global variable
-        // variable for getting the name of the country selected
+        // variable targetting text on click
         newsApp.nameOfCountry = $(this).text();
         // Calling the get Weather Function with both variables to change location of widget
         newsApp.getWeather(capCity, countryCode);
     });
 
+    // ******** Alternative Dropdown for Mobile ********
 
+    // Listen for change in dropdown to prompt article changes
+    $('#country').on('change', function () {
+        // Get the value of the region selected
+        newsApp.region = $(this).val();
+        // Find Main and clear what was previously appended
+        $('main').empty();
+        // Reset page counter for new dataset
+        newsApp.pagecount = 2;
+        // pass region as an argument when calling the function
+        newsApp.getNews(1, newsApp.region);
+        //When the user selects a country, the accent colour is reset to a random colour
+        newsApp.randomColor();
+    });
+
+
+    // Listen for change in dropdown to prompt weather widget
+    $('#country').on('change', function () {
+        //variable targetting option value
+        const countryCode = $(this).val();
+        // variable targetting option's other value
+        const capCity = $(this).find('option:selected').attr('data-othervalue');
+        // Calling the get Weather Function with both variables to change location of widget
+        newsApp.getWeather(capCity, countryCode);
+    });
 }
 
 // Get Weather Function (AJAX call)
@@ -228,12 +251,6 @@ newsApp.displayWeather = function (res) {
 
 
     // Converting the data to browser 
-    //QUINN #3: this is the only bit of your code I actually changed.
-    //it used to be:
-    //$('.region').text(`${cityName}, ${countryName}`);
-    //It shouldn't break anything because this is just for display: display 
-    //the contents of this variable here. Instead of displaying "Object[Object]"
-    //now it displays the country name that was taken from the text of the drop-down item
     $('.region').text(`${cityName}, ${newsApp.nameOfCountry}`);
     $('.weather-type').text(`${weatherType}`);
     $('.temp').text(`Current: ${currentTemp}°C`);
@@ -254,6 +271,7 @@ newsApp.infinite = function () {
     });
 }
 
+// Smooth Scroll
 newsApp.smoothScroll = function () {
     $('a').smoothScroll({
         offset: 0
@@ -270,10 +288,10 @@ newsApp.init = function () {
     newsApp.smoothScroll(); //smooth scroll
     //QUINN #5
     //Do you think that a random colour should be definined on first load? If so, uncommnet this 👇
-    //newsApp.randomColor();
+    newsApp.randomColor();
 };
 
+// Document Ready
 $(function () {
     newsApp.init();
-
 });
