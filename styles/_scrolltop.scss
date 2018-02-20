@@ -40,7 +40,6 @@
 }
 
 // Mobile Dropdown Menu
-
 form {
     display: none;
     padding: 10px 20px;
@@ -62,7 +61,6 @@ form {
 }
 
 // Weather Widget
-
 .widget-container {
     display: flex;
     justify-content: space-between;
@@ -124,7 +122,6 @@ form {
 }
 
 // Select Country Options
-
 .options {
     background: black;
     margin: 0;
@@ -148,18 +145,16 @@ form {
     margin-bottom: 5px;
 }
 
-
 // Nav Styles
-
-nav{
-    display: flex;
+nav {
+    display: none;
     flex-direction: column;
-    .third-of-nav{
-    display: flex;
-    justify-content: space-around;
-    width: 33.33%;
+    .third-of-nav {
+        display: flex;
+        justify-content: space-around;
+        width: 33.33%;
     }
-    .credit{
+    .credit {
         text-align: center;
         text-transform: uppercase;
         background: black;
@@ -169,23 +164,22 @@ nav{
         letter-spacing: 0.1rem;
         display: flex;
         justify-content: center;
-        a{
+        a {
             border-top: 1px solid lightgrey;
             width: 200px;
             display: block;
             color: lightgrey;
             padding: 10px 0;
             text-decoration: none;
-            &:hover{
+            &:hover {
                 border-top: 1px solid var(--accentColor);
-                color: var(--accentColor); 
+                color: var(--accentColor);
             }
         }
     }
 }
 
 // Mega Menu Styles
-
 .mega-menu {
     display: flex;
     flex-wrap: wrap;
@@ -198,7 +192,7 @@ nav{
 .block {
     display: flex;
     flex-direction: column;
-    a{
+    a {
         color: white;
         text-align: center;
         letter-spacing: 0.1rem;
@@ -207,13 +201,12 @@ nav{
     }
 }
 
-
-.animate{
+.animate {
     width: 100%;
     margin: 10px 0 10px 0;
 }
 
-.animate a{
+.animate a {
     height: 40px;
     border-bottom: 0 solid transparent;
     transition: all 0.3s ease-in-out;
@@ -225,97 +218,84 @@ nav{
 }
 
 @media (max-width: 940px) {
-    .mega-menu{
+    .mega-menu {
         font-size: 2vw;
         margin: 0 auto;
         width: 100%;
         text-align: center;
     }
-
-    .third-of-nav{
-       flex-direction: column;
+    .third-of-nav {
+        flex-direction: column;
     }
-
-    .third-of-nav:last-child{
+    .third-of-nav:last-child {
         justify-content: flex-start;
     }
 }
 
 @media (max-width: 768px) {
-    .widget-container, 
+    .widget-container,
     .widget {
         display: flex;
         flex-direction: column;
     }
-    
-    .middle{
+    .middle {
         border-top: 1px solid $main-color;
         border-bottom: 1px solid $main-color;
         border-left: 0;
         border-right: 0;
     }
-
     .date-widget,
     .region,
     .widget,
     .temps,
-    .middle{
+    .middle {
         margin-top: 20px;
     }
-
-    .temps{
+    .temps {
         display: flex;
-        p{
+        p {
             border-right: 1px solid $main-color;
             padding: 0 10px 0 10px;
             font-size: 1.1rem;
             font-weight: 300;
         }
     }
-  
 }
-
 
 @media (max-width: 480px) {
     nav,
     .mega-menu,
-    .options{
+    .options {
         display: none;
     }
-
-    .option-links{
+    .option-links {
         margin: 0;
         padding: 0;
     }
-
-    form{
+    form {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
-    .mega-menu{
-       width: 100%;
-    }
-
-    .third-of-nav{
+    .mega-menu {
         width: 100%;
-         align-items: center;
     }
-
-    .block{
+    .third-of-nav {
+        width: 100%;
+        align-items: center;
+    }
+    .block {
         display: block;
         width: 100%;
     }
-    .block a{
+    .block a {
         display: block;
     }
-
-    .animate{
+    .animate {
         margin: 0;
         padding: 0;
     }
-
-    .animate a{
+    .animate a {
         margin: 0;
         padding: 0;
         height: auto;

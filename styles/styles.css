@@ -318,9 +318,7 @@ form {
   margin-bottom: 5px; }
 
 nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -518,8 +516,7 @@ h1 {
     z-index: -1;
     top: 0px;
     left: 50%;
-    opacity: 0.7;
-    border-top: 400px solid var(--accentColor);
+    border-top: 400px solid #e2ded2;
     border-left: 300px solid transparent;
     border-right: 300px solid transparent;
     border-bottom: 0; }
@@ -572,6 +569,9 @@ p {
   font-size: 0.8rem;
   margin: 0.5em 0 1em;
   line-height: 1.3em; }
+
+img {
+  aria-hidden: true; }
 
 .atribution {
   font-size: 0.8rem;

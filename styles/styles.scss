@@ -41,8 +41,9 @@ h1 {
         z-index: -1;
         top: 0px;
         left: 50%;
-        opacity: 0.7;
-        border-top: 400px solid var(--accentColor);
+        // opacity: 0.7;
+        // border-top: 400px solid var(--accentColor);
+        border-top: 400px solid rgb(226, 222, 210);
         border-left: 300px solid rgba(0, 0, 0, 0);
         border-right: 300px solid rgba(0, 0, 0, 0);
         border-bottom: 0;
@@ -97,6 +98,10 @@ p {
     font-size: 0.8rem;
     margin: 0.5em 0 1em;
     line-height: 1.3em;
+}
+
+img {
+    aria-hidden: true;
 }
 
 .atribution {
